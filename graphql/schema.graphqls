@@ -1,0 +1,46 @@
+"""
+A directive used by the Apollo iOS client to annotate operations or fragments that should be used exclusively for generating local cache mutations instead of as standard operations.
+"""
+directive @apollo_client_ios_localCacheMutation on QUERY | MUTATION | SUBSCRIPTION | FRAGMENT_DEFINITION
+
+"""
+A directive used by the Apollo iOS code generation engine to generate custom import statements in operation or fragment definition files. An import statement to import a module with the name provided in the `module` argument will be added to the generated definition file.
+"""
+directive @import(
+  """The name of the module to import."""
+  module: String!
+) repeatable on QUERY | MUTATION | SUBSCRIPTION | FRAGMENT_DEFINITION
+
+type SalaryRange {
+  min: Int
+  max: Int
+}
+
+type Job {
+  _id: String
+  positionTitle: String
+  description: String
+  salaryRange: SalaryRange
+  location: Int
+  industry: Int
+  haveIApplied: Boolean
+}
+
+type GetJobsResponse {
+  page: Int
+  size: Int
+  hasNext: Boolean
+  total: Int
+  jobs: [Job]
+}
+
+type Query {
+  active(limit: Int, page: Int): GetJobsResponse
+  job(id: String!): Job
+  jobs(limit: Int, page: Int): GetJobsResponse
+}
+
+type Mutation {
+  auth(username: String!, password: String!): String
+  apply(jobId: String!): Boolean
+}

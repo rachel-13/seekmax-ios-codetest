@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -23,6 +23,9 @@
 		5E9F18222B80A96600A33FED /* ApolloSQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 5E9F18212B80A96600A33FED /* ApolloSQLite */; };
 		5E9F18242B80A96600A33FED /* ApolloTestSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 5E9F18232B80A96600A33FED /* ApolloTestSupport */; };
 		5E9F18272B80A9AA00A33FED /* ApolloWebSocket in Frameworks */ = {isa = PBXBuildFile; productRef = 5E9F18262B80A9AA00A33FED /* ApolloWebSocket */; };
+		5E9F182B2B8128F700A33FED /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9F182A2B8128F700A33FED /* LoginService.swift */; };
+		5E9F18302B812B0000A33FED /* SeekAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 5E9F182F2B812B0000A33FED /* SeekAPI */; };
+		5E9F18322B812B8E00A33FED /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9F18312B812B8E00A33FED /* NetworkClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +61,9 @@
 		5E9F18142B807F7E00A33FED /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		5E9F18162B807FD900A33FED /* AppliedJobsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppliedJobsViewController.swift; sourceTree = "<group>"; };
 		5E9F18182B807FF300A33FED /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		5E9F182A2B8128F700A33FED /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		5E9F182C2B8129A600A33FED /* SeekmaxAPI.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; name = SeekmaxAPI.graphql; path = seekmaxCodetest/Service/SeekmaxAPI.graphql; sourceTree = SOURCE_ROOT; };
+		5E9F18312B812B8E00A33FED /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +72,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E9F18202B80A96600A33FED /* ApolloAPI in Frameworks */,
+				5E9F18302B812B0000A33FED /* SeekAPI in Frameworks */,
 				5E9F18272B80A9AA00A33FED /* ApolloWebSocket in Frameworks */,
 				5E9F18222B80A96600A33FED /* ApolloSQLite in Frameworks */,
 				5E9F181C2B80A96600A33FED /* Apollo in Frameworks */,
@@ -114,6 +121,7 @@
 		5E9F17E02B80787500A33FED /* seekmaxCodetest */ = {
 			isa = PBXGroup;
 			children = (
+				5E9F18292B8128E200A33FED /* Service */,
 				5E9F18132B807EC600A33FED /* View */,
 				5E9F17E12B80787500A33FED /* AppDelegate.swift */,
 				5E9F17E32B80787500A33FED /* SceneDelegate.swift */,
@@ -159,6 +167,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5E9F18292B8128E200A33FED /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				5E9F18312B812B8E00A33FED /* NetworkClient.swift */,
+				5E9F182C2B8129A600A33FED /* SeekmaxAPI.graphql */,
+				5E9F182A2B8128F700A33FED /* LoginService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -166,7 +184,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5E9F18082B80787600A33FED /* Build configuration list for PBXNativeTarget "seekmaxCodetest" */;
 			buildPhases = (
-				5E9F18282B80AAE900A33FED /* Apollo */,
 				5E9F17DA2B80787500A33FED /* Sources */,
 				5E9F17DB2B80787500A33FED /* Frameworks */,
 				5E9F17DC2B80787500A33FED /* Resources */,
@@ -181,6 +198,7 @@
 				5E9F181F2B80A96600A33FED /* ApolloAPI */,
 				5E9F18212B80A96600A33FED /* ApolloSQLite */,
 				5E9F18262B80A9AA00A33FED /* ApolloWebSocket */,
+				5E9F182F2B812B0000A33FED /* SeekAPI */,
 			);
 			productName = seekmaxCodetest;
 			productReference = 5E9F17DE2B80787500A33FED /* seekmaxCodetest.app */;
@@ -259,6 +277,7 @@
 			mainGroup = 5E9F17D52B80787500A33FED;
 			packageReferences = (
 				5E9F181A2B80A96600A33FED /* XCRemoteSwiftPackageReference "apollo-ios" */,
+				5E9F182E2B812B0000A33FED /* XCLocalSwiftPackageReference "seekAPI" */,
 			);
 			productRefGroup = 5E9F17DF2B80787500A33FED /* Products */;
 			projectDirPath = "";
@@ -296,27 +315,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		5E9F18282B80AAE900A33FED /* Apollo */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = Apollo;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${SCRIPT_PATH}\"/run-bundled-codegen.sh schema:download --endpoint=\"http://localhost:3002\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		5E9F17DA2B80787500A33FED /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -327,8 +325,10 @@
 				5E9F17E62B80787500A33FED /* JobsViewController.swift in Sources */,
 				5E9F18152B807F7E00A33FED /* ProfileViewController.swift in Sources */,
 				5E9F17E22B80787500A33FED /* AppDelegate.swift in Sources */,
+				5E9F18322B812B8E00A33FED /* NetworkClient.swift in Sources */,
 				5E9F18172B807FD900A33FED /* AppliedJobsViewController.swift in Sources */,
 				5E9F17E42B80787500A33FED /* SceneDelegate.swift in Sources */,
+				5E9F182B2B8128F700A33FED /* LoginService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -657,6 +657,13 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCLocalSwiftPackageReference section */
+		5E9F182E2B812B0000A33FED /* XCLocalSwiftPackageReference "seekAPI" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = seekAPI;
+		};
+/* End XCLocalSwiftPackageReference section */
+
 /* Begin XCRemoteSwiftPackageReference section */
 		5E9F181A2B80A96600A33FED /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
@@ -693,6 +700,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5E9F181A2B80A96600A33FED /* XCRemoteSwiftPackageReference "apollo-ios" */;
 			productName = ApolloWebSocket;
+		};
+		5E9F182F2B812B0000A33FED /* SeekAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SeekAPI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

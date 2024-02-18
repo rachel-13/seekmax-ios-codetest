@@ -26,6 +26,8 @@
 		5E9F182B2B8128F700A33FED /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9F182A2B8128F700A33FED /* LoginService.swift */; };
 		5E9F18302B812B0000A33FED /* SeekAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 5E9F182F2B812B0000A33FED /* SeekAPI */; };
 		5E9F18322B812B8E00A33FED /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9F18312B812B8E00A33FED /* NetworkClient.swift */; };
+		5EBE653B2B81F9FC00C9EE04 /* Extension+Autolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBE653A2B81F9FC00C9EE04 /* Extension+Autolayout.swift */; };
+		5EBE653F2B81FEC700C9EE04 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBE653E2B81FEC700C9EE04 /* Theme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,8 @@
 		5E9F182A2B8128F700A33FED /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		5E9F182C2B8129A600A33FED /* SeekmaxAPI.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; name = SeekmaxAPI.graphql; path = seekmaxCodetest/Service/SeekmaxAPI.graphql; sourceTree = SOURCE_ROOT; };
 		5E9F18312B812B8E00A33FED /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		5EBE653A2B81F9FC00C9EE04 /* Extension+Autolayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Autolayout.swift"; sourceTree = "<group>"; };
+		5EBE653E2B81FEC700C9EE04 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +125,8 @@
 		5E9F17E02B80787500A33FED /* seekmaxCodetest */ = {
 			isa = PBXGroup;
 			children = (
+				5EBE653D2B81FEAC00C9EE04 /* Utils */,
+				5EBE653C2B81FA1600C9EE04 /* Extension */,
 				5E9F18292B8128E200A33FED /* Service */,
 				5E9F18132B807EC600A33FED /* View */,
 				5E9F17E12B80787500A33FED /* AppDelegate.swift */,
@@ -175,6 +181,22 @@
 				5E9F182A2B8128F700A33FED /* LoginService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		5EBE653C2B81FA1600C9EE04 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				5EBE653A2B81F9FC00C9EE04 /* Extension+Autolayout.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		5EBE653D2B81FEAC00C9EE04 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				5EBE653E2B81FEC700C9EE04 /* Theme.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -324,10 +346,12 @@
 				5E9F18122B807EBD00A33FED /* TabBarViewController.swift in Sources */,
 				5E9F17E62B80787500A33FED /* JobsViewController.swift in Sources */,
 				5E9F18152B807F7E00A33FED /* ProfileViewController.swift in Sources */,
+				5EBE653F2B81FEC700C9EE04 /* Theme.swift in Sources */,
 				5E9F17E22B80787500A33FED /* AppDelegate.swift in Sources */,
 				5E9F18322B812B8E00A33FED /* NetworkClient.swift in Sources */,
 				5E9F18172B807FD900A33FED /* AppliedJobsViewController.swift in Sources */,
 				5E9F17E42B80787500A33FED /* SceneDelegate.swift in Sources */,
+				5EBE653B2B81F9FC00C9EE04 /* Extension+Autolayout.swift in Sources */,
 				5E9F182B2B8128F700A33FED /* LoginService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

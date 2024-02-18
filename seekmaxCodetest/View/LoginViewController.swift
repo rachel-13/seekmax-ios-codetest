@@ -11,10 +11,12 @@ class LoginViewController: UIViewController {
   
   lazy var headline: UILabel = {
     let lbl = UILabel().withAutoLayout()
-    lbl.text = "Welcome to SeekMax!\nPlease login to proceed"
+    lbl.text = "Login to Seekmax"
     lbl.numberOfLines = 0
     lbl.lineBreakMode = .byWordWrapping
     lbl.textAlignment = .center
+    lbl.textColor = Theme.Color.white
+    lbl.font = Theme.Font.title
     return lbl
   }()
   
@@ -23,6 +25,7 @@ class LoginViewController: UIViewController {
     tf.placeholder = "Username"
     tf.borderStyle = .roundedRect
     tf.autocapitalizationType = .none
+    tf.font = Theme.Font.body
     return tf
   }()
   
@@ -31,13 +34,15 @@ class LoginViewController: UIViewController {
     tf.placeholder = "Password"
     tf.borderStyle = .roundedRect
     tf.isSecureTextEntry = true
+    tf.font = Theme.Font.body
     return tf
   }()
   
   lazy var loginButton: UIButton = {
     let btn = UIButton().withAutoLayout()
     btn.setTitle("Login", for: .normal)
-    btn.backgroundColor = .blue
+    btn.titleLabel?.font = Theme.Font.button
+    btn.backgroundColor = Theme.Color.button
     btn.layer.cornerRadius = 10.0
     return btn
   }()
@@ -48,12 +53,14 @@ class LoginViewController: UIViewController {
     lbl.numberOfLines = 0
     lbl.lineBreakMode = .byWordWrapping
     lbl.textAlignment = .center
+    lbl.font = Theme.Font.body
+    lbl.textColor = Theme.Color.errorRed
     return lbl
   }()
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.view.backgroundColor = .white
+    self.view.backgroundColor = Theme.Color.backgroundBrand
     setupUI()
   }
   
@@ -74,11 +81,13 @@ class LoginViewController: UIViewController {
       username.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
       username.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: Theme.Dimension.Margin),
       username.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -Theme.Dimension.Margin),
+      username.heightAnchor.constraint(equalToConstant: Theme.Dimension.TextFieldHeight),
       
       password.topAnchor.constraint(equalTo: self.username.bottomAnchor, constant: Theme.Dimension.Margin),
       password.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
       password.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: Theme.Dimension.Margin),
       password.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -Theme.Dimension.Margin),
+      password.heightAnchor.constraint(equalToConstant: Theme.Dimension.TextFieldHeight),
       
       errorMessage.topAnchor.constraint(equalTo: self.password.bottomAnchor, constant: Theme.Dimension.Margin),
       errorMessage.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
@@ -89,6 +98,7 @@ class LoginViewController: UIViewController {
       loginButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
       loginButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: Theme.Dimension.Margin),
       loginButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -Theme.Dimension.Margin),
+      loginButton.heightAnchor.constraint(equalToConstant: Theme.Dimension.ButtonHeight)
     ])
   }
   

@@ -28,6 +28,7 @@
 		5E9F18322B812B8E00A33FED /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9F18312B812B8E00A33FED /* NetworkClient.swift */; };
 		5EBE653B2B81F9FC00C9EE04 /* Extension+Autolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBE653A2B81F9FC00C9EE04 /* Extension+Autolayout.swift */; };
 		5EBE653F2B81FEC700C9EE04 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBE653E2B81FEC700C9EE04 /* Theme.swift */; };
+		5EBE65432B8207FD00C9EE04 /* Extension+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBE65422B8207FD00C9EE04 /* Extension+Color.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		5E9F18312B812B8E00A33FED /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		5EBE653A2B81F9FC00C9EE04 /* Extension+Autolayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Autolayout.swift"; sourceTree = "<group>"; };
 		5EBE653E2B81FEC700C9EE04 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		5EBE65422B8207FD00C9EE04 /* Extension+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Color.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				5EBE653A2B81F9FC00C9EE04 /* Extension+Autolayout.swift */,
+				5EBE65422B8207FD00C9EE04 /* Extension+Color.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				5E9F18172B807FD900A33FED /* AppliedJobsViewController.swift in Sources */,
 				5E9F17E42B80787500A33FED /* SceneDelegate.swift in Sources */,
 				5EBE653B2B81F9FC00C9EE04 /* Extension+Autolayout.swift in Sources */,
+				5EBE65432B8207FD00C9EE04 /* Extension+Color.swift in Sources */,
 				5E9F182B2B8128F700A33FED /* LoginService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

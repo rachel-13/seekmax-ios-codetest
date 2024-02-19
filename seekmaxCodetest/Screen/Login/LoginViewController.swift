@@ -133,12 +133,9 @@ class LoginViewController: UIViewController {
     ])
   }
   
-}
-
-extension LoginViewController: UITextFieldDelegate {
-  func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+  private func checkForValidForm() {
     guard let usernameText = username.text, let passwordText = password.text else {
-      return true
+      return
     }
     if !usernameText.isEmpty && !passwordText.isEmpty {
       loginButton.isEnabled = true
@@ -147,6 +144,21 @@ extension LoginViewController: UITextFieldDelegate {
       loginButton.isEnabled = false
       loginButton.backgroundColor = Theme.Color.backgroundSecondary
     }
+  }
+}
+
+extension LoginViewController: UITextFieldDelegate {
+  
+  func textFieldDidBeginEditing(_ textField: UITextField) {
+    checkForValidForm()
+  }
+  
+  func textFieldDidEndEditing(_ textField: UITextField) {
+    checkForValidForm()
+  }
+  
+  func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    checkForValidForm()
     return true
   }
 }

@@ -12,10 +12,15 @@ class LoginCoordinator: Coordinator {
   
   let window: UIWindow
   let navigationController: UINavigationController
+  var tabCoordinator: TabBarCoordinator?
   
   init(window: UIWindow, navigationController: UINavigationController) {
     self.window = window
     self.navigationController = navigationController
+  }
+  
+  deinit {
+    print("login coordinator deinited")
   }
   
   func start() {
@@ -31,7 +36,8 @@ class LoginCoordinator: Coordinator {
   }
   
   func didLoginSucceed() {
-    print("handle login")
+    tabCoordinator = TabBarCoordinator(window: self.window, navigationController: self.navigationController)
+    tabCoordinator?.start()
   }
 }
 

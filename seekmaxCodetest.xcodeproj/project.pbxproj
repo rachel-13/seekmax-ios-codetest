@@ -35,6 +35,9 @@
 		5EBE65522B82E72900C9EE04 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBE65512B82E72900C9EE04 /* KeychainWrapper.swift */; };
 		5EBE65542B82ED9400C9EE04 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBE65532B82ED9400C9EE04 /* Constant.swift */; };
 		5EBE65562B8312F600C9EE04 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBE65552B8312F600C9EE04 /* LoginCoordinator.swift */; };
+		5EBE65592B833C2800C9EE04 /* MockLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBE65582B833C2800C9EE04 /* MockLoginService.swift */; };
+		5EBE655B2B833C3500C9EE04 /* MockKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBE655A2B833C3500C9EE04 /* MockKeychain.swift */; };
+		5EBE655D2B83438A00C9EE04 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBE655C2B83438A00C9EE04 /* TabBarCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +84,9 @@
 		5EBE65512B82E72900C9EE04 /* KeychainWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		5EBE65532B82ED9400C9EE04 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		5EBE65552B8312F600C9EE04 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
+		5EBE65582B833C2800C9EE04 /* MockLoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLoginService.swift; sourceTree = "<group>"; };
+		5EBE655A2B833C3500C9EE04 /* MockKeychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockKeychain.swift; sourceTree = "<group>"; };
+		5EBE655C2B83438A00C9EE04 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +155,7 @@
 				5EBE65442B82570D00C9EE04 /* AppCoordinator.swift */,
 				5E9F17EA2B80787600A33FED /* Assets.xcassets */,
 				5E9F17EF2B80787600A33FED /* Info.plist */,
+				5EBE655C2B83438A00C9EE04 /* TabBarCoordinator.swift */,
 			);
 			path = seekmaxCodetest;
 			sourceTree = "<group>";
@@ -156,6 +163,7 @@
 		5E9F17F72B80787600A33FED /* seekmaxCodetestTests */ = {
 			isa = PBXGroup;
 			children = (
+				5EBE65572B833BEB00C9EE04 /* Mock */,
 				5E9F17F82B80787600A33FED /* seekmaxCodetestTests.swift */,
 			);
 			path = seekmaxCodetestTests;
@@ -257,6 +265,15 @@
 				5EBE65462B825B0400C9EE04 /* Login */,
 			);
 			path = Screen;
+			sourceTree = "<group>";
+		};
+		5EBE65572B833BEB00C9EE04 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				5EBE65582B833C2800C9EE04 /* MockLoginService.swift */,
+				5EBE655A2B833C3500C9EE04 /* MockKeychain.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -418,6 +435,7 @@
 				5E9F18322B812B8E00A33FED /* NetworkClient.swift in Sources */,
 				5E9F18172B807FD900A33FED /* AppliedJobsViewController.swift in Sources */,
 				5E9F17E42B80787500A33FED /* SceneDelegate.swift in Sources */,
+				5EBE655D2B83438A00C9EE04 /* TabBarCoordinator.swift in Sources */,
 				5EBE653B2B81F9FC00C9EE04 /* Extension+Autolayout.swift in Sources */,
 				5EBE65432B8207FD00C9EE04 /* Extension+Color.swift in Sources */,
 				5E9F182B2B8128F700A33FED /* LoginService.swift in Sources */,
@@ -429,6 +447,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E9F17F92B80787600A33FED /* seekmaxCodetestTests.swift in Sources */,
+				5EBE655B2B833C3500C9EE04 /* MockKeychain.swift in Sources */,
+				5EBE65592B833C2800C9EE04 /* MockLoginService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

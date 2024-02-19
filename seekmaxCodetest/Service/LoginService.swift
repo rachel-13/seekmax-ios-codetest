@@ -37,7 +37,7 @@ class LoginServiceImpl: LoginService {
           return
         }
         
-        guard let errs = response.errors, errs.isEmpty else {
+        guard response.errors == nil else {
           handleError(errors: response.errors)
           return
         }

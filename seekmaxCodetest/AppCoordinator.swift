@@ -14,14 +14,19 @@ protocol Coordinator {
 
 class AppCoordinator: Coordinator {
   var window: UIWindow
+  var loginCoordinator: LoginCoordinator?
   
   init(window: UIWindow) {
     self.window = window
   }
   
+  deinit {
+    print("app coordinator deinited")
+  }
+  
   func start() {
     let navigationController = UINavigationController()
-    let loginCoordinator = LoginCoordinator(window: self.window, navigationController: navigationController)
-    loginCoordinator.start()
+    loginCoordinator = LoginCoordinator(window: self.window, navigationController: navigationController)
+    loginCoordinator?.start()
   }
 }

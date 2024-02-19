@@ -36,6 +36,7 @@ class LoginViewModelImpl: LoginViewModel {
         switch result {
         case .success(let token):
           self.saveToken(token: token)
+          self.coordinatorDelegate?.didLoginSucceed()
         case .failure(let err):
           self.handleError(error: err)
         }

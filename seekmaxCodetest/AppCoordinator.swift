@@ -15,6 +15,7 @@ protocol Coordinator {
 class AppCoordinator: Coordinator {
   var window: UIWindow
   var loginCoordinator: LoginCoordinator?
+  var tabCoordinator: TabBarCoordinator?
   
   init(window: UIWindow) {
     self.window = window
@@ -26,7 +27,12 @@ class AppCoordinator: Coordinator {
   
   func start() {
     let navigationController = UINavigationController()
-    loginCoordinator = LoginCoordinator(window: self.window, navigationController: navigationController)
-    loginCoordinator?.start()
+    if let _ = KeychainWrapperImpl().getData(key: Constant.Keychain.accessTokenKey) {
+      tabCoordinator = TabBarCoordinator(window: self.window, navigationController: navigationController)
+      tabCoordinator?.start()
+    } else {
+      loginCoordinator = LoginCoordinator(window: self.window, navigationController: navigationController)
+      loginCoordinator?.start()
+    }
   }
 }

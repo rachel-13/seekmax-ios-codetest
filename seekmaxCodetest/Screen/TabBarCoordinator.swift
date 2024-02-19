@@ -20,8 +20,13 @@ class TabBarCoordinator: Coordinator {
   
   func start() {
     let tabVC = TabBarViewController()
-    tabVC.modalPresentationStyle = .fullScreen
-    self.navigationController.present(tabVC, animated: true)
+    if navigationController.viewControllers.isEmpty {
+      navigationController.viewControllers = [tabVC]
+      window.rootViewController = navigationController
+      window.makeKeyAndVisible()
+    } else {
+      tabVC.modalPresentationStyle = .fullScreen
+      self.navigationController.present(tabVC, animated: true)
+    }
   }
-  
 }

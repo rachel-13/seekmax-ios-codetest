@@ -151,11 +151,9 @@
 				5E9F18292B8128E200A33FED /* Service */,
 				5E9F17E12B80787500A33FED /* AppDelegate.swift */,
 				5E9F17E32B80787500A33FED /* SceneDelegate.swift */,
-				5E9F18112B807EBD00A33FED /* TabBarViewController.swift */,
 				5EBE65442B82570D00C9EE04 /* AppCoordinator.swift */,
 				5E9F17EA2B80787600A33FED /* Assets.xcassets */,
 				5E9F17EF2B80787600A33FED /* Info.plist */,
-				5EBE655C2B83438A00C9EE04 /* TabBarCoordinator.swift */,
 			);
 			path = seekmaxCodetest;
 			sourceTree = "<group>";
@@ -258,6 +256,8 @@
 		5EBE654D2B825CF800C9EE04 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				5E9F18112B807EBD00A33FED /* TabBarViewController.swift */,
+				5EBE655C2B83438A00C9EE04 /* TabBarCoordinator.swift */,
 				5EBE654A2B825B6300C9EE04 /* AppliedJobs */,
 				5EBE65492B825B4800C9EE04 /* Profile */,
 				5EBE65482B825B3000C9EE04 /* JobDetail */,

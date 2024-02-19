@@ -26,7 +26,7 @@ final class seekmaxCodetestTests: XCTestCase {
     // Given
     mockLoginService.shouldSucceed = true
     
-    sut.service.loginStream.sink { _ in
+    let _ = sut.service.loginStream.sink { _ in
       // Then
       XCTAssertTrue(self.mockKeychain.didCallSetData)
     }
@@ -39,7 +39,7 @@ final class seekmaxCodetestTests: XCTestCase {
     // Given
     mockLoginService.shouldSucceed = false
     
-    sut.service.loginStream.sink { _ in
+    let _ = sut.service.loginStream.sink { _ in
       // Then
       XCTAssertFalse(self.mockKeychain.didCallSetData)
       XCTAssertEqual(self.sut.errorMessage, "Username & password don't match")

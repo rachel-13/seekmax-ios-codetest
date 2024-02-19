@@ -17,7 +17,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
     guard let windowScene = (scene as? UIWindowScene) else { return }
     window = UIWindow(frame: UIScreen.main.bounds)
-    let appCoordinator = AppCoordinator(window: window!, windowScene: windowScene)
+    window?.windowScene = windowScene
+    let appCoordinator = AppCoordinator(window: window!)
     appCoordinator.start()
   }
 

@@ -14,22 +14,14 @@ protocol Coordinator {
 
 class AppCoordinator: Coordinator {
   var window: UIWindow
-  let windowScene: UIWindowScene
   
-  init(window: UIWindow, windowScene: UIWindowScene) {
+  init(window: UIWindow) {
     self.window = window
-    self.windowScene = windowScene
   }
   
   func start() {
-    let keychain = KeychainWrapperImpl()
-    let loginService = LoginServiceImpl(client: NetworkClient.shared)
-    let loginViewModel = LoginViewModelImpl(service: loginService, keychain: keychain)
-    let loginViewController = LoginViewController(viewModel: loginViewModel)
     let navigationController = UINavigationController()
-    navigationController.viewControllers = [loginViewController]
-    window.rootViewController = navigationController
-    window.makeKeyAndVisible()
-    window.windowScene = windowScene
+    let loginCoordinator = LoginCoordinator(window: self.window, navigationController: navigationController)
+    loginCoordinator.start()
   }
 }

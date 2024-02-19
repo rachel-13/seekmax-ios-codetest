@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 class LoginViewController: UIViewController {
   
@@ -26,6 +27,7 @@ class LoginViewController: UIViewController {
     tf.borderStyle = .roundedRect
     tf.autocapitalizationType = .none
     tf.font = Theme.Font.body
+    tf.delegate = self
     return tf
   }()
   
@@ -35,6 +37,7 @@ class LoginViewController: UIViewController {
     tf.borderStyle = .roundedRect
     tf.isSecureTextEntry = true
     tf.font = Theme.Font.body
+    tf.delegate = self
     return tf
   }()
   
@@ -44,7 +47,7 @@ class LoginViewController: UIViewController {
     btn.setTitleColor(Theme.Color.white, for: .normal)
     btn.setTitleColor(Theme.Color.textPrimary, for: .highlighted)
     btn.titleLabel?.font = Theme.Font.button
-    btn.backgroundColor = Theme.Color.button
+    btn.backgroundColor = Theme.Color.backgroundSecondary
     btn.layer.cornerRadius = 10.0
     btn.addTarget(self, action: #selector(didTapLogin), for: .touchUpInside)
     return btn
@@ -52,7 +55,6 @@ class LoginViewController: UIViewController {
   
   lazy var errorMessage: UILabel = {
     let lbl = UILabel().withAutoLayout()
-    lbl.text = "Error Message"
     lbl.numberOfLines = 0
     lbl.lineBreakMode = .byWordWrapping
     lbl.textAlignment = .center
@@ -62,11 +64,21 @@ class LoginViewController: UIViewController {
   }()
   
   let viewModel: LoginViewModel
+  var cancellables = Set<AnyCancellable>()
   
   override func viewDidLoad() {
     super.viewDidLoad()
     self.view.backgroundColor = Theme.Color.backgroundBrand
     setupUI()
+    bindToViewModel()
+  }
+  
+  private func bindToViewModel() {
+    viewModel.errorMessagePublisher
+      .receive(on: DispatchQueue.main)
+      .sink { [weak self] errorMessage in
+        self?.errorMessage.text = errorMessage
+      }.store(in: &cancellables)
   }
   
   init(viewModel: LoginViewModel) {
@@ -121,4 +133,20 @@ class LoginViewController: UIViewController {
     ])
   }
   
+}
+
+extension LoginViewController: UITextFieldDelegate {
+  func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    guard let usernameText = username.text, let passwordText = password.text else {
+      return true
+    }
+    if !usernameText.isEmpty && !passwordText.isEmpty {
+      loginButton.isEnabled = true
+      loginButton.backgroundColor = Theme.Color.button
+    } else {
+      loginButton.isEnabled = false
+      loginButton.backgroundColor = Theme.Color.backgroundSecondary
+    }
+    return true
+  }
 }

@@ -34,6 +34,7 @@
 		5EBE65502B8260DF00C9EE04 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5EBE654F2B8260DF00C9EE04 /* KeychainSwift */; };
 		5EBE65522B82E72900C9EE04 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBE65512B82E72900C9EE04 /* KeychainWrapper.swift */; };
 		5EBE65542B82ED9400C9EE04 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBE65532B82ED9400C9EE04 /* Constant.swift */; };
+		5EBE65562B8312F600C9EE04 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBE65552B8312F600C9EE04 /* LoginCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		5EBE654B2B825BA000C9EE04 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		5EBE65512B82E72900C9EE04 /* KeychainWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		5EBE65532B82ED9400C9EE04 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		5EBE65552B8312F600C9EE04 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +211,7 @@
 			children = (
 				5E9F18182B807FF300A33FED /* LoginViewController.swift */,
 				5EBE654B2B825BA000C9EE04 /* LoginViewModel.swift */,
+				5EBE65552B8312F600C9EE04 /* LoginCoordinator.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EBE65562B8312F600C9EE04 /* LoginCoordinator.swift in Sources */,
 				5E9F18192B807FF300A33FED /* LoginViewController.swift in Sources */,
 				5E9F18122B807EBD00A33FED /* TabBarViewController.swift in Sources */,
 				5EBE65452B82570D00C9EE04 /* AppCoordinator.swift in Sources */,

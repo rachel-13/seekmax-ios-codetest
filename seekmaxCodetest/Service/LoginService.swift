@@ -8,16 +8,20 @@
 import Foundation
 import Combine
 import SeekAPI
+import Apollo
 
 protocol LoginService {
-  var tokenPublisher: Published<String>.Publisher { get }
+  var loginStream: PassthroughSubject<Result<String, LoginError>, Never> { get }
   func login(username: String, password: String)
+}
+
+enum LoginError: Error {
+  case unauthorized
 }
 
 class LoginServiceImpl: LoginService {
  
-  @Published var token: String = ""
-  var tokenPublisher: Published<String>.Publisher { $token }
+  let loginStream: PassthroughSubject<Result<String, LoginError>, Never> = PassthroughSubject()
   let client: NetworkClient
   
   init(client: NetworkClient) {
@@ -29,15 +33,29 @@ class LoginServiceImpl: LoginService {
     self.client.apollo.perform(mutation: LoginMutation(username: username, password: password)) { [weak self] result in
       switch result {
       case .success(let response):
-        guard let self = self, let token = response.data?.auth else {
+        guard let self = self else {
           return
         }
-        self.token = token
+        
+        guard let errs = response.errors, errs.isEmpty else {
+          handleError(errors: response.errors)
+          return
+        }
+        
+        guard let token = response.data?.auth else {
+          return
+        }
+        self.loginStream.send(.success(token))
+        
       case .failure(let err):
-        // TODO: handle failed login
+        print(err)
         break
       }
     }
-    
+  }
+  
+  private func handleError(errors: [GraphQLError]?) {
+    guard let errors = errors, let firstErr = errors.first?.message else { return }
+    self.loginStream.send(.failure(.unauthorized))
   }
 }

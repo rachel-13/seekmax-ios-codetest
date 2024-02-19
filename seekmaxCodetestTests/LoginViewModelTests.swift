@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import Combine
 @testable import seekmaxCodetest
 
 final class seekmaxCodetestTests: XCTestCase {
@@ -13,6 +14,7 @@ final class seekmaxCodetestTests: XCTestCase {
   var sut: LoginViewModelImpl!
   var mockLoginService: MockLoginService!
   var mockKeychain: MockKeychain!
+  var cancelleable = Set<AnyCancellable>()
   
   override func setUp() {
     mockLoginService = MockLoginService()
@@ -24,10 +26,26 @@ final class seekmaxCodetestTests: XCTestCase {
     // Given
     mockLoginService.shouldSucceed = true
     
+    sut.service.loginStream.sink { _ in
+      // Then
+      XCTAssertTrue(self.mockKeychain.didCallSetData)
+    }
+    
     // When
     sut.login(with: "someusername", password: "somepassword")
+  }
+  
+  func testLoginFail() {
+    // Given
+    mockLoginService.shouldSucceed = false
     
-    // Then
-    XCTAssertTrue(mockKeychain.didCallSetData)
+    sut.service.loginStream.sink { _ in
+      // Then
+      XCTAssertFalse(self.mockKeychain.didCallSetData)
+      XCTAssertEqual(self.sut.errorMessage, "Username & password don't match")
+    }
+    
+    // When
+    sut.login(with: "someusername", password: "somepassword")
   }
 }

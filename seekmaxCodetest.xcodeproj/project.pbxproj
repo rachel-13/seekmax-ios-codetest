@@ -11,7 +11,7 @@
 		5E9F17E42B80787500A33FED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9F17E32B80787500A33FED /* SceneDelegate.swift */; };
 		5E9F17E62B80787500A33FED /* JobsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9F17E52B80787500A33FED /* JobsViewController.swift */; };
 		5E9F17EB2B80787600A33FED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E9F17EA2B80787600A33FED /* Assets.xcassets */; };
-		5E9F17F92B80787600A33FED /* seekmaxCodetestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9F17F82B80787600A33FED /* seekmaxCodetestTests.swift */; };
+		5E9F17F92B80787600A33FED /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9F17F82B80787600A33FED /* LoginViewModelTests.swift */; };
 		5E9F18032B80787600A33FED /* seekmaxCodetestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9F18022B80787600A33FED /* seekmaxCodetestUITests.swift */; };
 		5E9F18052B80787600A33FED /* seekmaxCodetestUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9F18042B80787600A33FED /* seekmaxCodetestUITestsLaunchTests.swift */; };
 		5E9F18122B807EBD00A33FED /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9F18112B807EBD00A33FED /* TabBarViewController.swift */; };
@@ -65,7 +65,7 @@
 		5E9F17EA2B80787600A33FED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5E9F17EF2B80787600A33FED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E9F17F42B80787600A33FED /* seekmaxCodetestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = seekmaxCodetestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5E9F17F82B80787600A33FED /* seekmaxCodetestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = seekmaxCodetestTests.swift; sourceTree = "<group>"; };
+		5E9F17F82B80787600A33FED /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
 		5E9F17FE2B80787600A33FED /* seekmaxCodetestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = seekmaxCodetestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E9F18022B80787600A33FED /* seekmaxCodetestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = seekmaxCodetestUITests.swift; sourceTree = "<group>"; };
 		5E9F18042B80787600A33FED /* seekmaxCodetestUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = seekmaxCodetestUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -164,7 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				5EBE65572B833BEB00C9EE04 /* Mock */,
-				5E9F17F82B80787600A33FED /* seekmaxCodetestTests.swift */,
+				5E9F17F82B80787600A33FED /* LoginViewModelTests.swift */,
 			);
 			path = seekmaxCodetestTests;
 			sourceTree = "<group>";
@@ -446,7 +446,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E9F17F92B80787600A33FED /* seekmaxCodetestTests.swift in Sources */,
+				5E9F17F92B80787600A33FED /* LoginViewModelTests.swift in Sources */,
 				5EBE655B2B833C3500C9EE04 /* MockKeychain.swift in Sources */,
 				5EBE65592B833C2800C9EE04 /* MockLoginService.swift in Sources */,
 			);

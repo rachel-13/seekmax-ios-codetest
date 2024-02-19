@@ -26,11 +26,11 @@ public class LoginMutation: GraphQLMutation {
     "password": password
   ] }
 
-  public struct Data: SeekAPI.SelectionSet {
+  public struct Data: SeekmaxAPI.SelectionSet {
     public let __data: DataDict
     public init(_dataDict: DataDict) { __data = _dataDict }
 
-    public static var __parentType: ApolloAPI.ParentType { SeekAPI.Objects.Mutation }
+    public static var __parentType: ApolloAPI.ParentType { SeekmaxAPI.Objects.Mutation }
     public static var __selections: [ApolloAPI.Selection] { [
       .field("auth", String?.self, arguments: [
         "username": .variable("username"),

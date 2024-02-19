@@ -7,7 +7,7 @@
 
 import Foundation
 import Combine
-import SeekAPI
+import SeekmaxAPI
 import Apollo
 
 protocol LoginService {
@@ -15,9 +15,6 @@ protocol LoginService {
   func login(username: String, password: String)
 }
 
-enum LoginError: Error {
-  case unauthorized
-}
 
 class LoginServiceImpl: LoginService {
  
@@ -31,14 +28,14 @@ class LoginServiceImpl: LoginService {
   func login(username: String, password: String) {
     
     self.client.apollo.perform(mutation: LoginMutation(username: username, password: password)) { [weak self] result in
+      guard let self = self else {
+        return
+      }
+      
       switch result {
       case .success(let response):
-        guard let self = self else {
-          return
-        }
-        
         guard response.errors == nil else {
-          handleError(errors: response.errors)
+          self.handleError(errors: response.errors)
           return
         }
         
@@ -56,6 +53,6 @@ class LoginServiceImpl: LoginService {
   
   private func handleError(errors: [GraphQLError]?) {
     guard let errors = errors, let firstErr = errors.first?.message else { return }
-    self.loginStream.send(.failure(.unauthorized))
+    self.loginStream.send(.failure(LoginError.unauthorized))
   }
 }

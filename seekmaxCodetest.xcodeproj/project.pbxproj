@@ -24,7 +24,6 @@
 		5E9F18242B80A96600A33FED /* ApolloTestSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 5E9F18232B80A96600A33FED /* ApolloTestSupport */; };
 		5E9F18272B80A9AA00A33FED /* ApolloWebSocket in Frameworks */ = {isa = PBXBuildFile; productRef = 5E9F18262B80A9AA00A33FED /* ApolloWebSocket */; };
 		5E9F182B2B8128F700A33FED /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9F182A2B8128F700A33FED /* LoginService.swift */; };
-		5E9F18302B812B0000A33FED /* SeekAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 5E9F182F2B812B0000A33FED /* SeekAPI */; };
 		5E9F18322B812B8E00A33FED /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9F18312B812B8E00A33FED /* NetworkClient.swift */; };
 		5EBE653B2B81F9FC00C9EE04 /* Extension+Autolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBE653A2B81F9FC00C9EE04 /* Extension+Autolayout.swift */; };
 		5EBE653F2B81FEC700C9EE04 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBE653E2B81FEC700C9EE04 /* Theme.swift */; };
@@ -38,6 +37,10 @@
 		5EBE65592B833C2800C9EE04 /* MockLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBE65582B833C2800C9EE04 /* MockLoginService.swift */; };
 		5EBE655B2B833C3500C9EE04 /* MockKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBE655A2B833C3500C9EE04 /* MockKeychain.swift */; };
 		5EBE655D2B83438A00C9EE04 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBE655C2B83438A00C9EE04 /* TabBarCoordinator.swift */; };
+		5EBE655F2B8366CD00C9EE04 /* JobService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBE655E2B8366CD00C9EE04 /* JobService.swift */; };
+		5EBE65692B83A53A00C9EE04 /* SeekmaxAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 5EBE65682B83A53A00C9EE04 /* SeekmaxAPI */; };
+		5EBE656B2B83ABC600C9EE04 /* NetworkErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBE656A2B83ABC600C9EE04 /* NetworkErrors.swift */; };
+		5EBE656D2B83AD8D00C9EE04 /* JobListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBE656C2B83AD8D00C9EE04 /* JobListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,7 +77,6 @@
 		5E9F18162B807FD900A33FED /* AppliedJobsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppliedJobsViewController.swift; sourceTree = "<group>"; };
 		5E9F18182B807FF300A33FED /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5E9F182A2B8128F700A33FED /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
-		5E9F182C2B8129A600A33FED /* SeekmaxAPI.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; name = SeekmaxAPI.graphql; path = seekmaxCodetest/Service/SeekmaxAPI.graphql; sourceTree = SOURCE_ROOT; };
 		5E9F18312B812B8E00A33FED /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		5EBE653A2B81F9FC00C9EE04 /* Extension+Autolayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Autolayout.swift"; sourceTree = "<group>"; };
 		5EBE653E2B81FEC700C9EE04 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -87,6 +89,11 @@
 		5EBE65582B833C2800C9EE04 /* MockLoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLoginService.swift; sourceTree = "<group>"; };
 		5EBE655A2B833C3500C9EE04 /* MockKeychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockKeychain.swift; sourceTree = "<group>"; };
 		5EBE655C2B83438A00C9EE04 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
+		5EBE655E2B8366CD00C9EE04 /* JobService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobService.swift; sourceTree = "<group>"; };
+		5EBE65632B83A3B300C9EE04 /* LoginMutation.graphql */ = {isa = PBXFileReference; lastKnownFileType = file; name = LoginMutation.graphql; path = graphql/LoginMutation.graphql; sourceTree = SOURCE_ROOT; };
+		5EBE65642B83A3B300C9EE04 /* GetActiveJobsQuery.graphql */ = {isa = PBXFileReference; lastKnownFileType = file; name = GetActiveJobsQuery.graphql; path = graphql/GetActiveJobsQuery.graphql; sourceTree = SOURCE_ROOT; };
+		5EBE656A2B83ABC600C9EE04 /* NetworkErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrors.swift; sourceTree = "<group>"; };
+		5EBE656C2B83AD8D00C9EE04 /* JobListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,8 +103,8 @@
 			files = (
 				5EBE65502B8260DF00C9EE04 /* KeychainSwift in Frameworks */,
 				5E9F18202B80A96600A33FED /* ApolloAPI in Frameworks */,
-				5E9F18302B812B0000A33FED /* SeekAPI in Frameworks */,
 				5E9F18272B80A9AA00A33FED /* ApolloWebSocket in Frameworks */,
+				5EBE65692B83A53A00C9EE04 /* SeekmaxAPI in Frameworks */,
 				5E9F18222B80A96600A33FED /* ApolloSQLite in Frameworks */,
 				5E9F181C2B80A96600A33FED /* Apollo in Frameworks */,
 			);
@@ -186,9 +193,11 @@
 		5E9F18292B8128E200A33FED /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				5EBE65622B83A1F700C9EE04 /* GraphQL */,
 				5E9F18312B812B8E00A33FED /* NetworkClient.swift */,
-				5E9F182C2B8129A600A33FED /* SeekmaxAPI.graphql */,
 				5E9F182A2B8128F700A33FED /* LoginService.swift */,
+				5EBE655E2B8366CD00C9EE04 /* JobService.swift */,
+				5EBE656A2B83ABC600C9EE04 /* NetworkErrors.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -226,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				5E9F17E52B80787500A33FED /* JobsViewController.swift */,
+				5EBE656C2B83AD8D00C9EE04 /* JobListViewModel.swift */,
 			);
 			path = JobList;
 			sourceTree = "<group>";
@@ -276,6 +286,15 @@
 			path = Mock;
 			sourceTree = "<group>";
 		};
+		5EBE65622B83A1F700C9EE04 /* GraphQL */ = {
+			isa = PBXGroup;
+			children = (
+				5EBE65642B83A3B300C9EE04 /* GetActiveJobsQuery.graphql */,
+				5EBE65632B83A3B300C9EE04 /* LoginMutation.graphql */,
+			);
+			path = GraphQL;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -297,8 +316,8 @@
 				5E9F181F2B80A96600A33FED /* ApolloAPI */,
 				5E9F18212B80A96600A33FED /* ApolloSQLite */,
 				5E9F18262B80A9AA00A33FED /* ApolloWebSocket */,
-				5E9F182F2B812B0000A33FED /* SeekAPI */,
 				5EBE654F2B8260DF00C9EE04 /* KeychainSwift */,
+				5EBE65682B83A53A00C9EE04 /* SeekmaxAPI */,
 			);
 			productName = seekmaxCodetest;
 			productReference = 5E9F17DE2B80787500A33FED /* seekmaxCodetest.app */;
@@ -377,8 +396,8 @@
 			mainGroup = 5E9F17D52B80787500A33FED;
 			packageReferences = (
 				5E9F181A2B80A96600A33FED /* XCRemoteSwiftPackageReference "apollo-ios" */,
-				5E9F182E2B812B0000A33FED /* XCLocalSwiftPackageReference "seekAPI" */,
 				5EBE654E2B8260DF00C9EE04 /* XCRemoteSwiftPackageReference "keychain-swift" */,
+				5EBE65672B83A53A00C9EE04 /* XCLocalSwiftPackageReference "SeekmaxAPI" */,
 			);
 			productRefGroup = 5E9F17DF2B80787500A33FED /* Products */;
 			projectDirPath = "";
@@ -429,6 +448,8 @@
 				5E9F17E62B80787500A33FED /* JobsViewController.swift in Sources */,
 				5E9F18152B807F7E00A33FED /* ProfileViewController.swift in Sources */,
 				5EBE653F2B81FEC700C9EE04 /* Theme.swift in Sources */,
+				5EBE655F2B8366CD00C9EE04 /* JobService.swift in Sources */,
+				5EBE656D2B83AD8D00C9EE04 /* JobListViewModel.swift in Sources */,
 				5EBE654C2B825BA000C9EE04 /* LoginViewModel.swift in Sources */,
 				5E9F17E22B80787500A33FED /* AppDelegate.swift in Sources */,
 				5EBE65522B82E72900C9EE04 /* KeychainWrapper.swift in Sources */,
@@ -437,6 +458,7 @@
 				5E9F17E42B80787500A33FED /* SceneDelegate.swift in Sources */,
 				5EBE655D2B83438A00C9EE04 /* TabBarCoordinator.swift in Sources */,
 				5EBE653B2B81F9FC00C9EE04 /* Extension+Autolayout.swift in Sources */,
+				5EBE656B2B83ABC600C9EE04 /* NetworkErrors.swift in Sources */,
 				5EBE65432B8207FD00C9EE04 /* Extension+Color.swift in Sources */,
 				5E9F182B2B8128F700A33FED /* LoginService.swift in Sources */,
 			);
@@ -770,9 +792,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		5E9F182E2B812B0000A33FED /* XCLocalSwiftPackageReference "seekAPI" */ = {
+		5EBE65672B83A53A00C9EE04 /* XCLocalSwiftPackageReference "SeekmaxAPI" */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = seekAPI;
+			relativePath = SeekmaxAPI;
 		};
 /* End XCLocalSwiftPackageReference section */
 
@@ -821,14 +843,14 @@
 			package = 5E9F181A2B80A96600A33FED /* XCRemoteSwiftPackageReference "apollo-ios" */;
 			productName = ApolloWebSocket;
 		};
-		5E9F182F2B812B0000A33FED /* SeekAPI */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = SeekAPI;
-		};
 		5EBE654F2B8260DF00C9EE04 /* KeychainSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5EBE654E2B8260DF00C9EE04 /* XCRemoteSwiftPackageReference "keychain-swift" */;
 			productName = KeychainSwift;
+		};
+		5EBE65682B83A53A00C9EE04 /* SeekmaxAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SeekmaxAPI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

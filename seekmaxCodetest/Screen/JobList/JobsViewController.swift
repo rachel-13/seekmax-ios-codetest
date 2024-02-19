@@ -18,6 +18,7 @@ class JobsViewController: UIViewController {
     return tv
   }()
   
+  var service: JobServiceImpl?
   override func viewDidLoad() {
     super.viewDidLoad()
     setupUI()

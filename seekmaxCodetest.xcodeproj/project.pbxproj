@@ -29,6 +29,11 @@
 		5EBE653B2B81F9FC00C9EE04 /* Extension+Autolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBE653A2B81F9FC00C9EE04 /* Extension+Autolayout.swift */; };
 		5EBE653F2B81FEC700C9EE04 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBE653E2B81FEC700C9EE04 /* Theme.swift */; };
 		5EBE65432B8207FD00C9EE04 /* Extension+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBE65422B8207FD00C9EE04 /* Extension+Color.swift */; };
+		5EBE65452B82570D00C9EE04 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBE65442B82570D00C9EE04 /* AppCoordinator.swift */; };
+		5EBE654C2B825BA000C9EE04 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBE654B2B825BA000C9EE04 /* LoginViewModel.swift */; };
+		5EBE65502B8260DF00C9EE04 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5EBE654F2B8260DF00C9EE04 /* KeychainSwift */; };
+		5EBE65522B82E72900C9EE04 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBE65512B82E72900C9EE04 /* KeychainWrapper.swift */; };
+		5EBE65542B82ED9400C9EE04 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBE65532B82ED9400C9EE04 /* Constant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +75,10 @@
 		5EBE653A2B81F9FC00C9EE04 /* Extension+Autolayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Autolayout.swift"; sourceTree = "<group>"; };
 		5EBE653E2B81FEC700C9EE04 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		5EBE65422B8207FD00C9EE04 /* Extension+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Color.swift"; sourceTree = "<group>"; };
+		5EBE65442B82570D00C9EE04 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		5EBE654B2B825BA000C9EE04 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		5EBE65512B82E72900C9EE04 /* KeychainWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
+		5EBE65532B82ED9400C9EE04 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EBE65502B8260DF00C9EE04 /* KeychainSwift in Frameworks */,
 				5E9F18202B80A96600A33FED /* ApolloAPI in Frameworks */,
 				5E9F18302B812B0000A33FED /* SeekAPI in Frameworks */,
 				5E9F18272B80A9AA00A33FED /* ApolloWebSocket in Frameworks */,
@@ -127,12 +137,14 @@
 		5E9F17E02B80787500A33FED /* seekmaxCodetest */ = {
 			isa = PBXGroup;
 			children = (
+				5EBE654D2B825CF800C9EE04 /* Screen */,
 				5EBE653D2B81FEAC00C9EE04 /* Utils */,
 				5EBE653C2B81FA1600C9EE04 /* Extension */,
 				5E9F18292B8128E200A33FED /* Service */,
-				5E9F18132B807EC600A33FED /* View */,
 				5E9F17E12B80787500A33FED /* AppDelegate.swift */,
 				5E9F17E32B80787500A33FED /* SceneDelegate.swift */,
+				5E9F18112B807EBD00A33FED /* TabBarViewController.swift */,
+				5EBE65442B82570D00C9EE04 /* AppCoordinator.swift */,
 				5E9F17EA2B80787600A33FED /* Assets.xcassets */,
 				5E9F17EF2B80787600A33FED /* Info.plist */,
 			);
@@ -154,18 +166,6 @@
 				5E9F18042B80787600A33FED /* seekmaxCodetestUITestsLaunchTests.swift */,
 			);
 			path = seekmaxCodetestUITests;
-			sourceTree = "<group>";
-		};
-		5E9F18132B807EC600A33FED /* View */ = {
-			isa = PBXGroup;
-			children = (
-				5E9F18112B807EBD00A33FED /* TabBarViewController.swift */,
-				5E9F17E52B80787500A33FED /* JobsViewController.swift */,
-				5E9F18142B807F7E00A33FED /* ProfileViewController.swift */,
-				5E9F18162B807FD900A33FED /* AppliedJobsViewController.swift */,
-				5E9F18182B807FF300A33FED /* LoginViewController.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		5E9F18252B80A9AA00A33FED /* Frameworks */ = {
@@ -198,8 +198,62 @@
 			isa = PBXGroup;
 			children = (
 				5EBE653E2B81FEC700C9EE04 /* Theme.swift */,
+				5EBE65512B82E72900C9EE04 /* KeychainWrapper.swift */,
+				5EBE65532B82ED9400C9EE04 /* Constant.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		5EBE65462B825B0400C9EE04 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				5E9F18182B807FF300A33FED /* LoginViewController.swift */,
+				5EBE654B2B825BA000C9EE04 /* LoginViewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		5EBE65472B825B1000C9EE04 /* JobList */ = {
+			isa = PBXGroup;
+			children = (
+				5E9F17E52B80787500A33FED /* JobsViewController.swift */,
+			);
+			path = JobList;
+			sourceTree = "<group>";
+		};
+		5EBE65482B825B3000C9EE04 /* JobDetail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = JobDetail;
+			sourceTree = "<group>";
+		};
+		5EBE65492B825B4800C9EE04 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				5E9F18142B807F7E00A33FED /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		5EBE654A2B825B6300C9EE04 /* AppliedJobs */ = {
+			isa = PBXGroup;
+			children = (
+				5E9F18162B807FD900A33FED /* AppliedJobsViewController.swift */,
+			);
+			path = AppliedJobs;
+			sourceTree = "<group>";
+		};
+		5EBE654D2B825CF800C9EE04 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				5EBE654A2B825B6300C9EE04 /* AppliedJobs */,
+				5EBE65492B825B4800C9EE04 /* Profile */,
+				5EBE65482B825B3000C9EE04 /* JobDetail */,
+				5EBE65472B825B1000C9EE04 /* JobList */,
+				5EBE65462B825B0400C9EE04 /* Login */,
+			);
+			path = Screen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,6 +278,7 @@
 				5E9F18212B80A96600A33FED /* ApolloSQLite */,
 				5E9F18262B80A9AA00A33FED /* ApolloWebSocket */,
 				5E9F182F2B812B0000A33FED /* SeekAPI */,
+				5EBE654F2B8260DF00C9EE04 /* KeychainSwift */,
 			);
 			productName = seekmaxCodetest;
 			productReference = 5E9F17DE2B80787500A33FED /* seekmaxCodetest.app */;
@@ -303,6 +358,7 @@
 			packageReferences = (
 				5E9F181A2B80A96600A33FED /* XCRemoteSwiftPackageReference "apollo-ios" */,
 				5E9F182E2B812B0000A33FED /* XCLocalSwiftPackageReference "seekAPI" */,
+				5EBE654E2B8260DF00C9EE04 /* XCRemoteSwiftPackageReference "keychain-swift" */,
 			);
 			productRefGroup = 5E9F17DF2B80787500A33FED /* Products */;
 			projectDirPath = "";
@@ -347,10 +403,14 @@
 			files = (
 				5E9F18192B807FF300A33FED /* LoginViewController.swift in Sources */,
 				5E9F18122B807EBD00A33FED /* TabBarViewController.swift in Sources */,
+				5EBE65452B82570D00C9EE04 /* AppCoordinator.swift in Sources */,
+				5EBE65542B82ED9400C9EE04 /* Constant.swift in Sources */,
 				5E9F17E62B80787500A33FED /* JobsViewController.swift in Sources */,
 				5E9F18152B807F7E00A33FED /* ProfileViewController.swift in Sources */,
 				5EBE653F2B81FEC700C9EE04 /* Theme.swift in Sources */,
+				5EBE654C2B825BA000C9EE04 /* LoginViewModel.swift in Sources */,
 				5E9F17E22B80787500A33FED /* AppDelegate.swift in Sources */,
+				5EBE65522B82E72900C9EE04 /* KeychainWrapper.swift in Sources */,
 				5E9F18322B812B8E00A33FED /* NetworkClient.swift in Sources */,
 				5E9F18172B807FD900A33FED /* AppliedJobsViewController.swift in Sources */,
 				5E9F17E42B80787500A33FED /* SceneDelegate.swift in Sources */,
@@ -701,6 +761,14 @@
 				minimumVersion = 1.9.0;
 			};
 		};
+		5EBE654E2B8260DF00C9EE04 /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/keychain-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 21.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -732,6 +800,11 @@
 		5E9F182F2B812B0000A33FED /* SeekAPI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SeekAPI;
+		};
+		5EBE654F2B8260DF00C9EE04 /* KeychainSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5EBE654E2B8260DF00C9EE04 /* XCRemoteSwiftPackageReference "keychain-swift" */;
+			productName = KeychainSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

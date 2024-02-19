@@ -41,9 +41,12 @@ class LoginViewController: UIViewController {
   lazy var loginButton: UIButton = {
     let btn = UIButton().withAutoLayout()
     btn.setTitle("Login", for: .normal)
+    btn.setTitleColor(Theme.Color.white, for: .normal)
+    btn.setTitleColor(Theme.Color.textPrimary, for: .highlighted)
     btn.titleLabel?.font = Theme.Font.button
     btn.backgroundColor = Theme.Color.button
     btn.layer.cornerRadius = 10.0
+    btn.addTarget(self, action: #selector(didTapLogin), for: .touchUpInside)
     return btn
   }()
   
@@ -58,10 +61,26 @@ class LoginViewController: UIViewController {
     return lbl
   }()
   
+  let viewModel: LoginViewModel
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     self.view.backgroundColor = Theme.Color.backgroundBrand
     setupUI()
+  }
+  
+  init(viewModel: LoginViewModel) {
+    self.viewModel = viewModel
+    super.init(nibName: nil, bundle: nil)
+  }
+  
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+  
+  @IBAction func didTapLogin() {
+    viewModel.login(with: username.text ?? "",
+                    password: password.text ?? "")
   }
   
   private func setupUI() {

@@ -10,11 +10,14 @@ import Combine
 import SeekAPI
 
 protocol LoginService {
+  var tokenPublisher: Published<String>.Publisher { get }
   func login(username: String, password: String)
 }
 
 class LoginServiceImpl: LoginService {
-  
+ 
+  @Published var token: String = ""
+  var tokenPublisher: Published<String>.Publisher { $token }
   let client: NetworkClient
   
   init(client: NetworkClient) {
@@ -26,8 +29,10 @@ class LoginServiceImpl: LoginService {
     self.client.apollo.perform(mutation: LoginMutation(username: username, password: password)) { [weak self] result in
       switch result {
       case .success(let response):
-        // TODO: handle successful login
-        break
+        guard let self = self, let token = response.data?.auth else {
+          return
+        }
+        self.token = token
       case .failure(let err):
         // TODO: handle failed login
         break

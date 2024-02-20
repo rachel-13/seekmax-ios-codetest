@@ -9,13 +9,32 @@ import Foundation
 import SeekmaxAPI
 
 protocol JobListCellViewModel {
-  var job: JobModel { get }
+  var companyName: String { get }
+  var positionTitle: String { get }
+  var positionDesc: String { get }
+  var applied: String { get }
 }
 
 class JobListCellViewModelImpl: JobListCellViewModel {
-  let job: JobModel
+  var companyName: String {
+    return job._id ?? ""
+  }
   
-  init(job: JobModel) {
+  var positionTitle: String {
+    return job.positionTitle ?? ""
+  }
+  
+  var positionDesc: String {
+    return job.description ?? ""
+  }
+  
+  var applied: String {
+    return job.haveIApplied ?? false ? "Applied" : "Apply Now"
+  }
+  
+  let job: JobListResponse.Job
+  
+  init(job: JobListResponse.Job) {
     self.job = job
   }
 }

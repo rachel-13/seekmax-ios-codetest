@@ -53,7 +53,7 @@ class JobListViewModelImpl: JobListViewModel {
             guard let unwrappedJob = job else {
               fatalError("No job found")
             }
-            return JobListCellViewModelImpl(job: JobModel(from: unwrappedJob))
+            return JobListCellViewModelImpl(job: unwrappedJob)
           }
           self.cellViewModels.append(contentsOf: parsedJobs)
         case .failure(let err):
@@ -68,6 +68,6 @@ class JobListViewModelImpl: JobListViewModel {
   }
   
   func didTapJob(index: Int) {
-    coordinatorDelegate?.showDetailsFor(jobId: cellViewModels[index].job.companyName)
+    coordinatorDelegate?.showDetailsFor(jobId: cellViewModels[index].companyName)
   }
 }

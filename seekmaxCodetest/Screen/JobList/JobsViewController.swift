@@ -48,6 +48,8 @@ class JobsViewController: UIViewController {
   }
   
   private func setupUI() {
+    self.tableView.rowHeight = UITableView.automaticDimension
+    self.tableView.estimatedRowHeight = 250
     self.view.backgroundColor = Theme.Color.backgroundBrand
     self.view.addSubview(tableView)
     
@@ -79,10 +81,6 @@ extension JobsViewController: UITableViewDataSource, UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     
-  }
-  
-  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 150.0
   }
   
   func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

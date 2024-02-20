@@ -14,6 +14,15 @@ class JobListTableViewCell: UITableViewCell {
     return view
   }()
   
+  lazy var companyName: UILabel = {
+    let lbl = UILabel().withAutoLayout()
+    lbl.numberOfLines = 0
+    lbl.lineBreakMode = .byWordWrapping
+    lbl.textColor = Theme.Color.textPrimary
+    lbl.font = Theme.Font.title
+    return lbl
+  }()
+  
   lazy var positionTitle: UILabel = {
     let lbl = UILabel().withAutoLayout()
     lbl.numberOfLines = 0
@@ -43,6 +52,7 @@ class JobListTableViewCell: UITableViewCell {
   
   func configure(with viewModel: JobListCellViewModel) {
     setupUI()
+    self.companyName.text = viewModel.companyName
     self.positionTitle.text = viewModel.positionTitle
     self.positionDesc.text = viewModel.positionDesc
     self.appliedLabel.text = viewModel.applied
@@ -59,17 +69,24 @@ class JobListTableViewCell: UITableViewCell {
     self.containerView.backgroundColor = Theme.Color.white
     
     self.contentView.addSubview(containerView)
+    self.containerView.addSubview(companyName)
     self.containerView.addSubview(positionTitle)
     self.containerView.addSubview(positionDesc)
     self.containerView.addSubview(appliedLabel)
     
     NSLayoutConstraint.activate([
       
-      self.containerView.topAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.topAnchor, constant: Theme.Dimension.CellMargin),
+      self.containerView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: Theme.Dimension.CellMargin),
       self.containerView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: Theme.Dimension.CellMargin),
       self.containerView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -Theme.Dimension.CellMargin),
+      self.containerView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -Theme.Dimension.CellMargin),
       
-      self.positionTitle.topAnchor.constraint(equalTo: self.containerView.topAnchor, constant: Theme.Dimension.Margin),
+      self.companyName.topAnchor.constraint(equalTo: self.containerView.topAnchor, constant: Theme.Dimension.Margin),
+      self.companyName.centerXAnchor.constraint(equalTo: self.containerView.centerXAnchor),
+      self.companyName.leadingAnchor.constraint(equalTo: self.containerView.leadingAnchor, constant: Theme.Dimension.Margin),
+      self.companyName.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor, constant: -Theme.Dimension.Margin),
+      
+      self.positionTitle.topAnchor.constraint(equalTo: self.companyName.bottomAnchor, constant: Theme.Dimension.Margin),
       self.positionTitle.centerXAnchor.constraint(equalTo: self.containerView.centerXAnchor),
       self.positionTitle.leadingAnchor.constraint(equalTo: self.containerView.leadingAnchor, constant: Theme.Dimension.Margin),
       self.positionTitle.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor, constant: -Theme.Dimension.Margin),

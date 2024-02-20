@@ -47,7 +47,7 @@
 		5EBE65782B84575E00C9EE04 /* JobDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBE65772B84575E00C9EE04 /* JobDetailViewController.swift */; };
 		5EBE657A2B845C1400C9EE04 /* JobDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBE65792B845C1400C9EE04 /* JobDetailViewModel.swift */; };
 		5EBE657F2B845F2800C9EE04 /* SeekmaxAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 5EBE657E2B845F2800C9EE04 /* SeekmaxAPI */; };
-		5EBE65852B84874800C9EE04 /* JobDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBE65842B84874800C9EE04 /* JobDetailModel.swift */; };
+		5EBE65852B84874800C9EE04 /* JobModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBE65842B84874800C9EE04 /* JobModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,7 +104,7 @@
 		5EBE65732B84533300C9EE04 /* JobListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListCoordinator.swift; sourceTree = "<group>"; };
 		5EBE65772B84575E00C9EE04 /* JobDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailViewController.swift; sourceTree = "<group>"; };
 		5EBE65792B845C1400C9EE04 /* JobDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailViewModel.swift; sourceTree = "<group>"; };
-		5EBE65842B84874800C9EE04 /* JobDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailModel.swift; sourceTree = "<group>"; };
+		5EBE65842B84874800C9EE04 /* JobModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -314,7 +314,7 @@
 		5EBE65862B848BE000C9EE04 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5EBE65842B84874800C9EE04 /* JobDetailModel.swift */,
+				5EBE65842B84874800C9EE04 /* JobModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -471,7 +471,7 @@
 				5EBE65452B82570D00C9EE04 /* AppCoordinator.swift in Sources */,
 				5EBE65542B82ED9400C9EE04 /* Constant.swift in Sources */,
 				5E9F17E62B80787500A33FED /* JobsViewController.swift in Sources */,
-				5EBE65852B84874800C9EE04 /* JobDetailModel.swift in Sources */,
+				5EBE65852B84874800C9EE04 /* JobModel.swift in Sources */,
 				5E9F18152B807F7E00A33FED /* ProfileViewController.swift in Sources */,
 				5EBE65782B84575E00C9EE04 /* JobDetailViewController.swift in Sources */,
 				5EBE653F2B81FEC700C9EE04 /* Theme.swift in Sources */,

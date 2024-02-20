@@ -1,5 +1,5 @@
 //
-//  JobDetailModel.swift
+//  JobModel.swift
 //  seekmaxCodetest
 //
 //  Created by pohz on 20/02/2024.

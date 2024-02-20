@@ -49,7 +49,9 @@ struct Theme {
     
     static let title = UIFont(name: Font.Name.HelveticaNeue_Bold.rawValue, size: 24.0)
     static let title2 = UIFont(name: Font.Name.HelveticaNeue_Bold.rawValue, size: 20.0)
+    static let title3 = UIFont(name: Font.Name.HelveticaNeue_Bold.rawValue, size: 18.0)
     static let body = UIFont(name: Font.Name.HelveticaNeue.rawValue, size: 18.0)
+    static let body2 = UIFont(name: Font.Name.HelveticaNeue.rawValue, size: 16.0)
     static let caption = UIFont(name: Font.Name.HelveticaNeue_Thin.rawValue, size: 16.0)
     static let button = UIFont(name: Font.Name.HelveticaNeue_Bold.rawValue, size: 18.0)
   }

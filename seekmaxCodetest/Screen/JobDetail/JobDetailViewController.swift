@@ -46,7 +46,7 @@ class JobDetailViewController: UIViewController {
     let lbl = UILabel().withAutoLayout()
     lbl.numberOfLines = 0
     lbl.lineBreakMode = .byWordWrapping
-    lbl.font = Theme.Font.title2
+    lbl.font = Theme.Font.title3
     lbl.textColor = Theme.Color.textPrimary
     lbl.text = "Description"
     return lbl
@@ -56,7 +56,7 @@ class JobDetailViewController: UIViewController {
     let lbl = UILabel().withAutoLayout()
     lbl.numberOfLines = 0
     lbl.lineBreakMode = .byWordWrapping
-    lbl.font = Theme.Font.body
+    lbl.font = Theme.Font.body2
     lbl.textColor = Theme.Color.textPrimary
     return lbl
   }()
@@ -66,7 +66,7 @@ class JobDetailViewController: UIViewController {
     let lbl = UILabel().withAutoLayout()
     lbl.numberOfLines = 0
     lbl.lineBreakMode = .byWordWrapping
-    lbl.font = Theme.Font.title2
+    lbl.font = Theme.Font.title3
     lbl.textColor = Theme.Color.textPrimary
     lbl.text = "Salary Range"
     return lbl
@@ -85,7 +85,7 @@ class JobDetailViewController: UIViewController {
     let lbl = UILabel().withAutoLayout()
     lbl.numberOfLines = 0
     lbl.lineBreakMode = .byWordWrapping
-    lbl.font = Theme.Font.title2
+    lbl.font = Theme.Font.title3
     lbl.textColor = Theme.Color.textPrimary
     lbl.text = "Industry"
     return lbl
@@ -105,7 +105,7 @@ class JobDetailViewController: UIViewController {
     let lbl = UILabel().withAutoLayout()
     lbl.numberOfLines = 0
     lbl.lineBreakMode = .byWordWrapping
-    lbl.font = Theme.Font.title2
+    lbl.font = Theme.Font.title3
     lbl.textColor = Theme.Color.textPrimary
     lbl.text = "Location"
     return lbl
@@ -194,7 +194,7 @@ class JobDetailViewController: UIViewController {
       self.scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
       self.scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
       
-      self.stackView.topAnchor.constraint(equalTo: self.scrollView.topAnchor, constant: Theme.Dimension.Margin * 4),
+      self.stackView.topAnchor.constraint(equalTo: self.scrollView.topAnchor, constant: Theme.Dimension.Margin * 3),
       self.stackView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: Theme.Dimension.Margin),
       self.stackView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -Theme.Dimension.Margin),
       self.stackView.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor),

@@ -60,7 +60,7 @@ class JobListTableViewCell: UITableViewCell {
   
   func setupUI() {
     self.selectionStyle = .none
-    self.containerView.layer.cornerRadius = 10
+    self.containerView.layer.cornerRadius = Theme.Dimension.cornerRadius
     self.containerView.layer.shadowOpacity = 1
     self.containerView.layer.shadowColor = Theme.Color.darkGrayShadow.cgColor
     self.containerView.layer.shadowRadius = 4

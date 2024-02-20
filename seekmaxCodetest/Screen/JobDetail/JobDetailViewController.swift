@@ -126,7 +126,7 @@ class JobDetailViewController: UIViewController {
     btn.setTitleColor(Theme.Color.textPrimary, for: .highlighted)
     btn.titleLabel?.font = Theme.Font.button
     btn.backgroundColor = Theme.Color.backgroundBrand
-    btn.layer.cornerRadius = 10.0
+    btn.layer.cornerRadius = Theme.Dimension.cornerRadius
     btn.addTarget(self, action: #selector(didTapApply), for: .touchUpInside)
     return btn
   }()

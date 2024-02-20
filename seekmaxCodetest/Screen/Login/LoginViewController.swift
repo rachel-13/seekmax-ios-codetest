@@ -48,7 +48,7 @@ class LoginViewController: UIViewController {
     btn.setTitleColor(Theme.Color.textPrimary, for: .highlighted)
     btn.titleLabel?.font = Theme.Font.button
     btn.backgroundColor = Theme.Color.backgroundSecondary
-    btn.layer.cornerRadius = 10.0
+    btn.layer.cornerRadius = Theme.Dimension.cornerRadius
     btn.addTarget(self, action: #selector(didTapLogin), for: .touchUpInside)
     return btn
   }()

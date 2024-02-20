@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E01E23E2B84F3AA0015014A /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E01E23D2B84F3AA0015014A /* SessionManager.swift */; };
 		5E9F17E22B80787500A33FED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9F17E12B80787500A33FED /* AppDelegate.swift */; };
 		5E9F17E42B80787500A33FED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9F17E32B80787500A33FED /* SceneDelegate.swift */; };
 		5E9F17E62B80787500A33FED /* JobsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9F17E52B80787500A33FED /* JobsViewController.swift */; };
@@ -68,6 +69,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5E01E23D2B84F3AA0015014A /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		5E9F17DE2B80787500A33FED /* seekmaxCodetest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = seekmaxCodetest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E9F17E12B80787500A33FED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5E9F17E32B80787500A33FED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				5EBE653E2B81FEC700C9EE04 /* Theme.swift */,
 				5EBE65512B82E72900C9EE04 /* KeychainWrapper.swift */,
 				5EBE65532B82ED9400C9EE04 /* Constant.swift */,
+				5E01E23D2B84F3AA0015014A /* SessionManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -471,6 +474,7 @@
 				5EBE65452B82570D00C9EE04 /* AppCoordinator.swift in Sources */,
 				5EBE65542B82ED9400C9EE04 /* Constant.swift in Sources */,
 				5E9F17E62B80787500A33FED /* JobsViewController.swift in Sources */,
+				5E01E23E2B84F3AA0015014A /* SessionManager.swift in Sources */,
 				5EBE65852B84874800C9EE04 /* JobModel.swift in Sources */,
 				5E9F18152B807F7E00A33FED /* ProfileViewController.swift in Sources */,
 				5EBE65782B84575E00C9EE04 /* JobDetailViewController.swift in Sources */,

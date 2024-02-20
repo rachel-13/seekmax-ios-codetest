@@ -16,6 +16,7 @@ class TabBarCoordinator: Coordinator {
   init(window: UIWindow, navigationController: UINavigationController) {
     self.window = window
     self.navigationController = navigationController
+    self.navigationController.navigationBar.isHidden = true
   }
   
   func start() {

@@ -32,7 +32,6 @@ class JobListCellViewModelImpl: JobListCellViewModel {
     return job.haveIApplied ?? false ? "Applied" : "Apply Now"
   }
   
-  
   let job: JobListResponse.Job
   
   init(job: JobListResponse.Job) {

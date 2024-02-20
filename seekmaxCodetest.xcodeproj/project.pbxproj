@@ -43,6 +43,8 @@
 		5EBE656D2B83AD8D00C9EE04 /* JobListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBE656C2B83AD8D00C9EE04 /* JobListViewModel.swift */; };
 		5EBE656F2B83B21500C9EE04 /* JobListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBE656E2B83B21500C9EE04 /* JobListTableViewCell.swift */; };
 		5EBE65722B8444F200C9EE04 /* JobListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBE65712B8444F200C9EE04 /* JobListCellViewModel.swift */; };
+		5EBE65742B84533300C9EE04 /* JobListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBE65732B84533300C9EE04 /* JobListCoordinator.swift */; };
+		5EBE65782B84575E00C9EE04 /* JobDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBE65772B84575E00C9EE04 /* JobDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +100,8 @@
 		5EBE656C2B83AD8D00C9EE04 /* JobListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListViewModel.swift; sourceTree = "<group>"; };
 		5EBE656E2B83B21500C9EE04 /* JobListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListTableViewCell.swift; sourceTree = "<group>"; };
 		5EBE65712B8444F200C9EE04 /* JobListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListCellViewModel.swift; sourceTree = "<group>"; };
+		5EBE65732B84533300C9EE04 /* JobListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListCoordinator.swift; sourceTree = "<group>"; };
+		5EBE65772B84575E00C9EE04 /* JobDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,6 +245,7 @@
 				5EBE65702B8444CE00C9EE04 /* Cell */,
 				5E9F17E52B80787500A33FED /* JobsViewController.swift */,
 				5EBE656C2B83AD8D00C9EE04 /* JobListViewModel.swift */,
+				5EBE65732B84533300C9EE04 /* JobListCoordinator.swift */,
 			);
 			path = JobList;
 			sourceTree = "<group>";
@@ -248,6 +253,7 @@
 		5EBE65482B825B3000C9EE04 /* JobDetail */ = {
 			isa = PBXGroup;
 			children = (
+				5EBE65772B84575E00C9EE04 /* JobDetailViewController.swift */,
 			);
 			path = JobDetail;
 			sourceTree = "<group>";
@@ -461,6 +467,7 @@
 				5EBE65542B82ED9400C9EE04 /* Constant.swift in Sources */,
 				5E9F17E62B80787500A33FED /* JobsViewController.swift in Sources */,
 				5E9F18152B807F7E00A33FED /* ProfileViewController.swift in Sources */,
+				5EBE65782B84575E00C9EE04 /* JobDetailViewController.swift in Sources */,
 				5EBE653F2B81FEC700C9EE04 /* Theme.swift in Sources */,
 				5EBE655F2B8366CD00C9EE04 /* JobService.swift in Sources */,
 				5EBE656D2B83AD8D00C9EE04 /* JobListViewModel.swift in Sources */,
@@ -476,6 +483,7 @@
 				5EBE65722B8444F200C9EE04 /* JobListCellViewModel.swift in Sources */,
 				5EBE656B2B83ABC600C9EE04 /* NetworkErrors.swift in Sources */,
 				5EBE65432B8207FD00C9EE04 /* Extension+Color.swift in Sources */,
+				5EBE65742B84533300C9EE04 /* JobListCoordinator.swift in Sources */,
 				5E9F182B2B8128F700A33FED /* LoginService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

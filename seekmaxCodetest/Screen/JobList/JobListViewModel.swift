@@ -26,6 +26,7 @@ class JobListViewModelImpl: JobListViewModel {
   var page = 1
   var total = 0
   var hasNext = false
+  var coordinatorDelegate: JobListCoordinator?
   
   @Published var cellViewModels: [JobListCellViewModel] = []
   
@@ -67,6 +68,6 @@ class JobListViewModelImpl: JobListViewModel {
   }
   
   func didTapJob(index: Int) {
-    
+    coordinatorDelegate?.showDetailsFor(jobId: cellViewModels[index].companyName)
   }
 }

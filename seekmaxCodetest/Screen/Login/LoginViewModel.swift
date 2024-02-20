@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol LoginViewModel {
-  var errorMessagePublisher: Published<String>.Publisher { get}
+  var errorMessagePublisher: Published<String>.Publisher { get }
   func login(with username: String, password: String)
 }
 

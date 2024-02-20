@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 class JobsViewController: UIViewController {
   
@@ -15,15 +16,35 @@ class JobsViewController: UIViewController {
     tv.dataSource = self
     tv.register(JobListTableViewCell.self, forCellReuseIdentifier: Constant.UI.jobCell)
     tv.separatorStyle = .none
+    tv.showsVerticalScrollIndicator = false
     return tv
   }()
   
-  var viewModel = JobListViewModelImpl(service: JobServiceImpl(client: NetworkClient.shared))
+  let viewModel: JobListViewModel
+  var cancellable = Set<AnyCancellable>()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     setupUI()
-    viewModel.vc = self
+    bindToViewModel()
     viewModel.fetchJobs()
+  }
+  
+  init(viewModel: JobListViewModel) {
+    self.viewModel = viewModel
+    super.init(nibName: nil, bundle: nil)
+  }
+  
+  private func bindToViewModel() {
+    self.viewModel.cellViewModelPublisher
+      .receive(on: DispatchQueue.main)
+      .sink { [weak self] _ in
+        self?.reloadData()
+      }.store(in: &cancellable)
+  }
+  
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
   }
   
   private func setupUI() {
@@ -45,17 +66,14 @@ class JobsViewController: UIViewController {
 
 extension JobsViewController: UITableViewDataSource, UITableViewDelegate {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return viewModel.jobs.count
+    return viewModel.cellViewModels.count
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: Constant.UI.jobCell, for: indexPath) as? JobListTableViewCell else {
       fatalError("Unable to dequeue cell")
     }
-    cell.configure()
-    cell.positionTitle.text = viewModel.jobs[indexPath.row]?._id
-    cell.positionDesc.text = viewModel.jobs[indexPath.row]?.description
-    cell.appliedLabel.text = "Applied"
+    cell.configure(with: viewModel.cellViewModels[indexPath.row])
     return cell
   }
   
@@ -64,7 +82,13 @@ extension JobsViewController: UITableViewDataSource, UITableViewDelegate {
   }
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 180.0
+    return 150.0
+  }
+  
+  func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    if indexPath.row == viewModel.cellViewModels.count - 2, viewModel.hasNext {
+      viewModel.fetchJobs()
+    }
   }
 }
 

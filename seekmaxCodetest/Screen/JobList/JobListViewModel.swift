@@ -10,20 +10,24 @@ import Combine
 import SeekmaxAPI
 
 protocol JobListViewModel {
-  var jobs: [GetActiveJobsListQuery.Data.Active.Job?] { get }
+  var cellViewModels: [JobListCellViewModel] { get }
+  var cellViewModelPublisher: Published<[JobListCellViewModel]>.Publisher { get }
+  var hasNext: Bool { get }
+  var total: Int { get }
   func didTapJob(index: Int)
   func fetchJobs()
 }
 
 class JobListViewModelImpl: JobListViewModel {
+  var cellViewModelPublisher: Published<[JobListCellViewModel]>.Publisher { $cellViewModels }
   var cancellable = Set<AnyCancellable>()
   let service: JobService
   var size = 10
   var page = 1
   var total = 0
   var hasNext = false
-  var jobs = [GetActiveJobsListQuery.Data.Active.Job?]()
-  weak var vc: JobsViewController?
+  
+  @Published var cellViewModels: [JobListCellViewModel] = []
   
   init(service: JobService) {
     self.service = service
@@ -35,7 +39,6 @@ class JobListViewModelImpl: JobListViewModel {
       .receive(on: DispatchQueue.main)
       .sink { [weak self] result in
         guard let self = self else { return }
-        
         switch result {
         case .success(let jobList):
           guard let activeJobs = jobList.jobs else {
@@ -45,8 +48,13 @@ class JobListViewModelImpl: JobListViewModel {
           self.hasNext = jobList.hasNext ?? false
           self.total = jobList.total ?? 0
           self.page += 1
-          self.jobs = activeJobs
-          vc?.reloadData()
+          let parsedJobs = activeJobs.map { job in
+            guard let unwrappedJob = job else {
+              fatalError("No job found")
+            }
+            return JobListCellViewModelImpl(job: unwrappedJob)
+          }
+          self.cellViewModels.append(contentsOf: parsedJobs)
         case .failure(let err):
           break
         }

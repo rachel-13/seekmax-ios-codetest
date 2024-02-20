@@ -41,8 +41,11 @@ class JobListTableViewCell: UITableViewCell {
     return lbl
   }()
   
-  func configure() {
+  func configure(with viewModel: JobListCellViewModel) {
     setupUI()
+    self.positionTitle.text = viewModel.positionTitle
+    self.positionDesc.text = viewModel.positionDesc
+    self.appliedLabel.text = viewModel.applied
   }
   
   func setupUI() {

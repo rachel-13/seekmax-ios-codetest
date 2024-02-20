@@ -9,13 +9,19 @@ import UIKit
 
 class TabBarViewController: UITabBarController {
   
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    let jobsViewController = JobsViewController()
+  lazy var jobsViewController: JobsViewController = {
+    let jobService = JobServiceImpl(client: NetworkClient.shared)
+    let jobsViewModel = JobListViewModelImpl(service: jobService)
+    let jobsViewController = JobsViewController(viewModel: jobsViewModel)
     let jobsBarItem = UITabBarItem(title: "Jobs",
                                    image: UIImage(systemName: "bag"),
                                    selectedImage: UIImage(named: "bag.fill"))
     jobsViewController.tabBarItem = jobsBarItem
+    return jobsViewController
+  }()
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
     
     let appliedViewController = AppliedJobsViewController()
     let appliedBarItem = UITabBarItem(title: "Show My Applications",

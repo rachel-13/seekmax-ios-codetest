@@ -26,6 +26,7 @@ public enum SchemaMetadata: ApolloAPI.SchemaMetadata {
     case "GetJobsResponse": return SeekmaxAPI.Objects.GetJobsResponse
     case "Job": return SeekmaxAPI.Objects.Job
     case "Mutation": return SeekmaxAPI.Objects.Mutation
+    case "SalaryRange": return SeekmaxAPI.Objects.SalaryRange
     default: return nil
     }
   }

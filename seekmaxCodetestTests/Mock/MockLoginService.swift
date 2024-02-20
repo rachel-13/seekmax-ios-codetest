@@ -12,7 +12,7 @@ import Combine
 class MockLoginService: LoginService {
   
   var shouldSucceed = true
-  var loginStream = PassthroughSubject<Result<String, LoginError>, Never>()
+  var loginStream = PassthroughSubject<Result<String, LoginServiceError>, Never>()
   func login(username: String, password: String) {
     if shouldSucceed {
       loginStream.send(.success("sometoken"))

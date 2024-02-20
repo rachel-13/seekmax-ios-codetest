@@ -52,7 +52,7 @@ class LoginViewModelImpl: LoginViewModel {
     self.keychain.setData(key: Constant.Keychain.accessTokenKey, value: token)
   }
   
-  private func handleError(error: LoginError) {
+  private func handleError(error: LoginServiceError) {
     if error == .unauthorized {
       self.errorMessage = "Username & password don't match"
     }

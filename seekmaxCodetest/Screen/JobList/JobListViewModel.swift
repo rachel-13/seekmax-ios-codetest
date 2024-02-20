@@ -21,7 +21,7 @@ protocol JobListViewModel {
 class JobListViewModelImpl: JobListViewModel {
   var cellViewModelPublisher: Published<[JobListCellViewModel]>.Publisher { $cellViewModels }
   var cancellable = Set<AnyCancellable>()
-  let service: JobService
+  let service: JobListService
   var size = 10
   var page = 1
   var total = 0
@@ -30,7 +30,7 @@ class JobListViewModelImpl: JobListViewModel {
   
   @Published var cellViewModels: [JobListCellViewModel] = []
   
-  init(service: JobService) {
+  init(service: JobListService) {
     self.service = service
     bindToService()
   }

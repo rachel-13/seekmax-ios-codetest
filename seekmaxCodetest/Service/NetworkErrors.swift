@@ -7,10 +7,10 @@
 
 import Foundation
 
-enum LoginError: Error {
+enum LoginServiceError: Error {
   case unauthorized
 }
 
-enum GetListError: Error {
+enum JobServiceError: Error {
   case unknown
 }

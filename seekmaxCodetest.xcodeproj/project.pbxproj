@@ -45,6 +45,9 @@
 		5EBE65722B8444F200C9EE04 /* JobListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBE65712B8444F200C9EE04 /* JobListCellViewModel.swift */; };
 		5EBE65742B84533300C9EE04 /* JobListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBE65732B84533300C9EE04 /* JobListCoordinator.swift */; };
 		5EBE65782B84575E00C9EE04 /* JobDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBE65772B84575E00C9EE04 /* JobDetailViewController.swift */; };
+		5EBE657A2B845C1400C9EE04 /* JobDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBE65792B845C1400C9EE04 /* JobDetailViewModel.swift */; };
+		5EBE657F2B845F2800C9EE04 /* SeekmaxAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 5EBE657E2B845F2800C9EE04 /* SeekmaxAPI */; };
+		5EBE65852B84874800C9EE04 /* JobDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBE65842B84874800C9EE04 /* JobDetailModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,14 +97,14 @@
 		5EBE655A2B833C3500C9EE04 /* MockKeychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockKeychain.swift; sourceTree = "<group>"; };
 		5EBE655C2B83438A00C9EE04 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		5EBE655E2B8366CD00C9EE04 /* JobService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobService.swift; sourceTree = "<group>"; };
-		5EBE65632B83A3B300C9EE04 /* LoginMutation.graphql */ = {isa = PBXFileReference; lastKnownFileType = file; name = LoginMutation.graphql; path = graphql/LoginMutation.graphql; sourceTree = SOURCE_ROOT; };
-		5EBE65642B83A3B300C9EE04 /* GetActiveJobsQuery.graphql */ = {isa = PBXFileReference; lastKnownFileType = file; name = GetActiveJobsQuery.graphql; path = graphql/GetActiveJobsQuery.graphql; sourceTree = SOURCE_ROOT; };
 		5EBE656A2B83ABC600C9EE04 /* NetworkErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrors.swift; sourceTree = "<group>"; };
 		5EBE656C2B83AD8D00C9EE04 /* JobListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListViewModel.swift; sourceTree = "<group>"; };
 		5EBE656E2B83B21500C9EE04 /* JobListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListTableViewCell.swift; sourceTree = "<group>"; };
 		5EBE65712B8444F200C9EE04 /* JobListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListCellViewModel.swift; sourceTree = "<group>"; };
 		5EBE65732B84533300C9EE04 /* JobListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListCoordinator.swift; sourceTree = "<group>"; };
 		5EBE65772B84575E00C9EE04 /* JobDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailViewController.swift; sourceTree = "<group>"; };
+		5EBE65792B845C1400C9EE04 /* JobDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailViewModel.swift; sourceTree = "<group>"; };
+		5EBE65842B84874800C9EE04 /* JobDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +116,7 @@
 				5E9F18202B80A96600A33FED /* ApolloAPI in Frameworks */,
 				5E9F18272B80A9AA00A33FED /* ApolloWebSocket in Frameworks */,
 				5EBE65692B83A53A00C9EE04 /* SeekmaxAPI in Frameworks */,
+				5EBE657F2B845F2800C9EE04 /* SeekmaxAPI in Frameworks */,
 				5E9F18222B80A96600A33FED /* ApolloSQLite in Frameworks */,
 				5E9F181C2B80A96600A33FED /* Apollo in Frameworks */,
 			);
@@ -160,6 +164,7 @@
 		5E9F17E02B80787500A33FED /* seekmaxCodetest */ = {
 			isa = PBXGroup;
 			children = (
+				5EBE65862B848BE000C9EE04 /* Model */,
 				5EBE654D2B825CF800C9EE04 /* Screen */,
 				5EBE653D2B81FEAC00C9EE04 /* Utils */,
 				5EBE653C2B81FA1600C9EE04 /* Extension */,
@@ -201,7 +206,6 @@
 		5E9F18292B8128E200A33FED /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				5EBE65622B83A1F700C9EE04 /* GraphQL */,
 				5E9F18312B812B8E00A33FED /* NetworkClient.swift */,
 				5E9F182A2B8128F700A33FED /* LoginService.swift */,
 				5EBE655E2B8366CD00C9EE04 /* JobService.swift */,
@@ -254,6 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				5EBE65772B84575E00C9EE04 /* JobDetailViewController.swift */,
+				5EBE65792B845C1400C9EE04 /* JobDetailViewModel.swift */,
 			);
 			path = JobDetail;
 			sourceTree = "<group>";
@@ -297,15 +302,6 @@
 			path = Mock;
 			sourceTree = "<group>";
 		};
-		5EBE65622B83A1F700C9EE04 /* GraphQL */ = {
-			isa = PBXGroup;
-			children = (
-				5EBE65642B83A3B300C9EE04 /* GetActiveJobsQuery.graphql */,
-				5EBE65632B83A3B300C9EE04 /* LoginMutation.graphql */,
-			);
-			path = GraphQL;
-			sourceTree = "<group>";
-		};
 		5EBE65702B8444CE00C9EE04 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -313,6 +309,14 @@
 				5EBE65712B8444F200C9EE04 /* JobListCellViewModel.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		5EBE65862B848BE000C9EE04 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5EBE65842B84874800C9EE04 /* JobDetailModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -338,6 +342,7 @@
 				5E9F18262B80A9AA00A33FED /* ApolloWebSocket */,
 				5EBE654F2B8260DF00C9EE04 /* KeychainSwift */,
 				5EBE65682B83A53A00C9EE04 /* SeekmaxAPI */,
+				5EBE657E2B845F2800C9EE04 /* SeekmaxAPI */,
 			);
 			productName = seekmaxCodetest;
 			productReference = 5E9F17DE2B80787500A33FED /* seekmaxCodetest.app */;
@@ -417,7 +422,7 @@
 			packageReferences = (
 				5E9F181A2B80A96600A33FED /* XCRemoteSwiftPackageReference "apollo-ios" */,
 				5EBE654E2B8260DF00C9EE04 /* XCRemoteSwiftPackageReference "keychain-swift" */,
-				5EBE65672B83A53A00C9EE04 /* XCLocalSwiftPackageReference "SeekmaxAPI" */,
+				5EBE657D2B845F2800C9EE04 /* XCLocalSwiftPackageReference "SeekmaxAPI" */,
 			);
 			productRefGroup = 5E9F17DF2B80787500A33FED /* Products */;
 			projectDirPath = "";
@@ -466,6 +471,7 @@
 				5EBE65452B82570D00C9EE04 /* AppCoordinator.swift in Sources */,
 				5EBE65542B82ED9400C9EE04 /* Constant.swift in Sources */,
 				5E9F17E62B80787500A33FED /* JobsViewController.swift in Sources */,
+				5EBE65852B84874800C9EE04 /* JobDetailModel.swift in Sources */,
 				5E9F18152B807F7E00A33FED /* ProfileViewController.swift in Sources */,
 				5EBE65782B84575E00C9EE04 /* JobDetailViewController.swift in Sources */,
 				5EBE653F2B81FEC700C9EE04 /* Theme.swift in Sources */,
@@ -485,6 +491,7 @@
 				5EBE65432B8207FD00C9EE04 /* Extension+Color.swift in Sources */,
 				5EBE65742B84533300C9EE04 /* JobListCoordinator.swift in Sources */,
 				5E9F182B2B8128F700A33FED /* LoginService.swift in Sources */,
+				5EBE657A2B845C1400C9EE04 /* JobDetailViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -816,7 +823,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		5EBE65672B83A53A00C9EE04 /* XCLocalSwiftPackageReference "SeekmaxAPI" */ = {
+		5EBE657D2B845F2800C9EE04 /* XCLocalSwiftPackageReference "SeekmaxAPI" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = SeekmaxAPI;
 		};
@@ -873,6 +880,10 @@
 			productName = KeychainSwift;
 		};
 		5EBE65682B83A53A00C9EE04 /* SeekmaxAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SeekmaxAPI;
+		};
+		5EBE657E2B845F2800C9EE04 /* SeekmaxAPI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SeekmaxAPI;
 		};

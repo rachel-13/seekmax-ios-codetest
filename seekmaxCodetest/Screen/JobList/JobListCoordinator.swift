@@ -29,6 +29,9 @@ class JobListCoordinator: Coordinator {
   }
   
   func showDetailsFor(jobId: String) {
-    
+    let jobDetailService = JobServiceImpl(client: NetworkClient.shared)
+    let jobDetailViewModel = JobDetailViewModelImpl(jobId: jobId, service: jobDetailService)
+    let jobDetailViewController = JobDetailViewController(viewModel: jobDetailViewModel)
+    self.navigationController.present(jobDetailViewController, animated: true)
   }
 }

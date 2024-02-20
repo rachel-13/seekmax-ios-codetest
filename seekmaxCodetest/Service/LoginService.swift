@@ -11,14 +11,14 @@ import SeekmaxAPI
 import Apollo
 
 protocol LoginService {
-  var loginStream: PassthroughSubject<Result<String, LoginError>, Never> { get }
+  var loginStream: PassthroughSubject<Result<String, LoginServiceError>, Never> { get }
   func login(username: String, password: String)
 }
 
 
 class LoginServiceImpl: LoginService {
  
-  let loginStream: PassthroughSubject<Result<String, LoginError>, Never> = PassthroughSubject()
+  let loginStream: PassthroughSubject<Result<String, LoginServiceError>, Never> = PassthroughSubject()
   let client: NetworkClient
   
   init(client: NetworkClient) {
@@ -53,6 +53,6 @@ class LoginServiceImpl: LoginService {
   
   private func handleError(errors: [GraphQLError]?) {
     guard let errors = errors, let firstErr = errors.first?.message else { return }
-    self.loginStream.send(.failure(LoginError.unauthorized))
+    self.loginStream.send(.failure(LoginServiceError.unauthorized))
   }
 }

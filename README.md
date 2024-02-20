@@ -4,16 +4,17 @@
 
 - Written in UIKit but using Combine in-place of the all familiar RxSwift
 - Used MVVM-C for separation of concerns
-- Defined a Theme file that contains all settings of Colors and Fonts and Margins
+- Defined a Theme file that contains all constants of the application
+- Used a SessionManager to keep track of login status
 
 ### TODO: FEATURES
 
 - ~~Login Screen~~
 - ~~Auto-login~~
 - ~~Jobs List Screen~~
-- Job Details Screen
+- ~~Job Details Screen~~
 - Apply for job
-- Logout Mechanism
+- ~~Logout Mechanism~~
 - Edit Profile Mechanism
 - Applied Jobs screen
 

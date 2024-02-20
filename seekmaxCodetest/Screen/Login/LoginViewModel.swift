@@ -36,7 +36,6 @@ class LoginViewModelImpl: LoginViewModel {
         switch result {
         case .success(let token):
           self.saveToken(token: token)
-          self.coordinatorDelegate?.didLoginSucceed()
         case .failure(let err):
           self.handleError(error: err)
         }
@@ -49,7 +48,7 @@ class LoginViewModelImpl: LoginViewModel {
   }
   
   private func saveToken(token: String) {
-    self.keychain.setData(key: Constant.Keychain.accessTokenKey, value: token)
+    SessionManager.shared.login(with: token)
   }
   
   private func handleError(error: LoginServiceError) {

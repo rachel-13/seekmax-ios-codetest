@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Combine
 
 protocol Coordinator {
   func start()
@@ -16,6 +17,7 @@ class AppCoordinator: Coordinator {
   var window: UIWindow
   var loginCoordinator: LoginCoordinator?
   var tabCoordinator: TabBarCoordinator?
+  var cancelleable = Set<AnyCancellable>()
   
   init(window: UIWindow) {
     self.window = window
@@ -27,15 +29,20 @@ class AppCoordinator: Coordinator {
   
   func start() {
     let navigationController = UINavigationController()
-    if let _ = KeychainWrapperImpl().getData(key: Constant.Keychain.accessTokenKey) {
-     routeToTabBar(navigationController: navigationController)
-    } else {
-      routeToLogin(navigationController: navigationController)
-    }
+    SessionManager.shared.$isLoggedIn
+      .sink { isLoggedIn in
+        if isLoggedIn {
+          self.routeToTabBar(navigationController: navigationController)
+        } else {
+          self.routeToLogin(navigationController: navigationController)
+        }
+      }.store(in: &cancelleable)
   }
   
   func routeToLogin(navigationController: UINavigationController) {
-    loginCoordinator = LoginCoordinator(window: self.window, navigationController: navigationController)
+    if loginCoordinator == nil {
+      loginCoordinator = LoginCoordinator(window: self.window, navigationController: navigationController)
+    }
     loginCoordinator?.start()
   }
   

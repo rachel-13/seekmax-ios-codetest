@@ -12,8 +12,7 @@ class LoginCoordinator: Coordinator {
   
   let window: UIWindow
   let navigationController: UINavigationController
-  var tabCoordinator: TabBarCoordinator?
-  
+
   init(window: UIWindow, navigationController: UINavigationController) {
     self.window = window
     self.navigationController = navigationController
@@ -33,11 +32,11 @@ class LoginCoordinator: Coordinator {
     navigationController.viewControllers = [loginViewController]
     window.rootViewController = navigationController
     window.makeKeyAndVisible()
-  }
-  
-  func didLoginSucceed() {
-    tabCoordinator = TabBarCoordinator(window: self.window, navigationController: self.navigationController)
-    tabCoordinator?.start()
+    UIView.transition(with: window,
+                      duration: Theme.Duration.animation,
+                      options: .transitionCrossDissolve,
+                      animations: nil,
+                      completion: nil)
   }
 }
 

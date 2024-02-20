@@ -21,13 +21,13 @@ class TabBarCoordinator: Coordinator {
   
   func start() {
     let tabVC = TabBarViewController()
-    if navigationController.viewControllers.isEmpty {
-      navigationController.viewControllers = [tabVC]
-      window.rootViewController = navigationController
-      window.makeKeyAndVisible()
-    } else {
-      tabVC.modalPresentationStyle = .fullScreen
-      self.navigationController.present(tabVC, animated: true)
-    }
+    navigationController.viewControllers = [tabVC]
+    window.rootViewController = navigationController
+    window.makeKeyAndVisible()
+    UIView.transition(with: window,
+                      duration: Theme.Duration.animation,
+                      options: .transitionCrossDissolve,
+                      animations: nil,
+                      completion: nil)
   }
 }

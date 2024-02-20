@@ -10,6 +10,10 @@ import UIKit
 
 struct Theme {
   
+  struct Duration {
+    static let animation = 0.3
+  }
+  
   struct Dimension {
     static let Margin = 20.0
     static let CellMargin = 10.0

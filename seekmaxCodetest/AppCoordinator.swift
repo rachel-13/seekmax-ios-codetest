@@ -28,11 +28,19 @@ class AppCoordinator: Coordinator {
   func start() {
     let navigationController = UINavigationController()
     if let _ = KeychainWrapperImpl().getData(key: Constant.Keychain.accessTokenKey) {
-      tabCoordinator = TabBarCoordinator(window: self.window, navigationController: navigationController)
-      tabCoordinator?.start()
+     routeToTabBar(navigationController: navigationController)
     } else {
-      loginCoordinator = LoginCoordinator(window: self.window, navigationController: navigationController)
-      loginCoordinator?.start()
+      routeToLogin(navigationController: navigationController)
     }
+  }
+  
+  func routeToLogin(navigationController: UINavigationController) {
+    loginCoordinator = LoginCoordinator(window: self.window, navigationController: navigationController)
+    loginCoordinator?.start()
+  }
+  
+  func routeToTabBar(navigationController: UINavigationController) {
+    tabCoordinator = TabBarCoordinator(window: self.window, navigationController: navigationController)
+    tabCoordinator?.start()
   }
 }

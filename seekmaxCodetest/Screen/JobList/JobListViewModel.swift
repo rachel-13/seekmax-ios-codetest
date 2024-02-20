@@ -10,6 +10,7 @@ import Combine
 import SeekmaxAPI
 
 protocol JobListViewModel {
+  var jobs: [GetActiveJobsListQuery.Data.Active.Job?] { get }
   func didTapJob(index: Int)
   func fetchJobs()
 }
@@ -21,6 +22,8 @@ class JobListViewModelImpl: JobListViewModel {
   var page = 1
   var total = 0
   var hasNext = false
+  var jobs = [GetActiveJobsListQuery.Data.Active.Job?]()
+  weak var vc: JobsViewController?
   
   init(service: JobService) {
     self.service = service
@@ -35,8 +38,15 @@ class JobListViewModelImpl: JobListViewModel {
         
         switch result {
         case .success(let jobList):
+          guard let activeJobs = jobList.jobs else {
+            return
+          }
+          
           self.hasNext = jobList.hasNext ?? false
+          self.total = jobList.total ?? 0
           self.page += 1
+          self.jobs = activeJobs
+          vc?.reloadData()
         case .failure(let err):
           break
         }

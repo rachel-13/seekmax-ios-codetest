@@ -11,4 +11,8 @@ struct Constant {
   struct Keychain {
     static let accessTokenKey = "accessToken"
   }
+  
+  struct UI {
+    static let jobCell = "JobListCellIdentifier"
+  }
 }

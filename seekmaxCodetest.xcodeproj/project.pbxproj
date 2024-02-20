@@ -41,6 +41,7 @@
 		5EBE65692B83A53A00C9EE04 /* SeekmaxAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 5EBE65682B83A53A00C9EE04 /* SeekmaxAPI */; };
 		5EBE656B2B83ABC600C9EE04 /* NetworkErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBE656A2B83ABC600C9EE04 /* NetworkErrors.swift */; };
 		5EBE656D2B83AD8D00C9EE04 /* JobListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBE656C2B83AD8D00C9EE04 /* JobListViewModel.swift */; };
+		5EBE656F2B83B21500C9EE04 /* JobListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBE656E2B83B21500C9EE04 /* JobListTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		5EBE65642B83A3B300C9EE04 /* GetActiveJobsQuery.graphql */ = {isa = PBXFileReference; lastKnownFileType = file; name = GetActiveJobsQuery.graphql; path = graphql/GetActiveJobsQuery.graphql; sourceTree = SOURCE_ROOT; };
 		5EBE656A2B83ABC600C9EE04 /* NetworkErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrors.swift; sourceTree = "<group>"; };
 		5EBE656C2B83AD8D00C9EE04 /* JobListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListViewModel.swift; sourceTree = "<group>"; };
+		5EBE656E2B83B21500C9EE04 /* JobListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,6 +238,7 @@
 			children = (
 				5E9F17E52B80787500A33FED /* JobsViewController.swift */,
 				5EBE656C2B83AD8D00C9EE04 /* JobListViewModel.swift */,
+				5EBE656E2B83B21500C9EE04 /* JobListTableViewCell.swift */,
 			);
 			path = JobList;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 				5EBE655F2B8366CD00C9EE04 /* JobService.swift in Sources */,
 				5EBE656D2B83AD8D00C9EE04 /* JobListViewModel.swift in Sources */,
 				5EBE654C2B825BA000C9EE04 /* LoginViewModel.swift in Sources */,
+				5EBE656F2B83B21500C9EE04 /* JobListTableViewCell.swift in Sources */,
 				5E9F17E22B80787500A33FED /* AppDelegate.swift in Sources */,
 				5EBE65522B82E72900C9EE04 /* KeychainWrapper.swift in Sources */,
 				5E9F18322B812B8E00A33FED /* NetworkClient.swift in Sources */,

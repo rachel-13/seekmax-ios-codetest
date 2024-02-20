@@ -13,15 +13,17 @@ class JobsViewController: UIViewController {
     let tv = UITableView().withAutoLayout()
     tv.delegate = self
     tv.dataSource = self
-    tv.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+    tv.register(JobListTableViewCell.self, forCellReuseIdentifier: Constant.UI.jobCell)
     tv.separatorStyle = .none
     return tv
   }()
   
-  var service: JobServiceImpl?
+  var viewModel = JobListViewModelImpl(service: JobServiceImpl(client: NetworkClient.shared))
   override func viewDidLoad() {
     super.viewDidLoad()
     setupUI()
+    viewModel.vc = self
+    viewModel.fetchJobs()
   }
   
   private func setupUI() {
@@ -35,20 +37,25 @@ class JobsViewController: UIViewController {
       self.tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
     ])
   }
+  
+  func reloadData() {
+    tableView.reloadData()
+  }
 }
 
 extension JobsViewController: UITableViewDataSource, UITableViewDelegate {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 10
+    return viewModel.jobs.count
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as UITableViewCell
-    cell.textLabel?.text = "Test"
-    cell.detailTextLabel?.text = "Detail"
-    cell.layer.borderColor = UIColor.black.cgColor
-    cell.layer.cornerRadius = 10.0
-    cell.layer.shadowOffset = CGSize(width: 5, height: 5)
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: Constant.UI.jobCell, for: indexPath) as? JobListTableViewCell else {
+      fatalError("Unable to dequeue cell")
+    }
+    cell.configure()
+    cell.positionTitle.text = viewModel.jobs[indexPath.row]?._id
+    cell.positionDesc.text = viewModel.jobs[indexPath.row]?.description
+    cell.appliedLabel.text = "Applied"
     return cell
   }
   
@@ -57,7 +64,7 @@ extension JobsViewController: UITableViewDataSource, UITableViewDelegate {
   }
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 120.0
+    return 180.0
   }
 }
 

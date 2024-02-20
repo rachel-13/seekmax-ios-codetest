@@ -12,6 +12,7 @@ struct Theme {
   
   struct Dimension {
     static let Margin = 20.0
+    static let CellMargin = 10.0
     static let TextFieldHeight = 50.0
     static let ButtonHeight = 45.0
   }
@@ -24,6 +25,8 @@ struct Theme {
     static let textSecondary = UIColor(rgb: 0x69768c)
     static let button = UIColor(rgb: 0x2765cf)
     static let errorRed = UIColor(rgb: 0xff0000)
+    static let lightGrayBackground = UIColor(rgb: 0xe4e6eb)
+    static let darkGrayShadow = UIColor(rgb:0x333436)
   }
   
   struct Font {

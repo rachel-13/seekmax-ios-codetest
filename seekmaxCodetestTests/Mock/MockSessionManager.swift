@@ -19,7 +19,6 @@ class MockSessionManager: SessionManagerProtocol {
     stubbedToken = token
   }
   
-  var didCallLogout = false
   func logout() {
     isLoggedIn = false
   }

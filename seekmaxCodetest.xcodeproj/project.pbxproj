@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5E01E23E2B84F3AA0015014A /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E01E23D2B84F3AA0015014A /* SessionManager.swift */; };
 		5E01E2402B8591620015014A /* MockSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E01E23F2B8591620015014A /* MockSessionManager.swift */; };
+		5E01E2422B85A2FE0015014A /* AppCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E01E2412B85A2FE0015014A /* AppCoordinatorTests.swift */; };
 		5E9F17E22B80787500A33FED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9F17E12B80787500A33FED /* AppDelegate.swift */; };
 		5E9F17E42B80787500A33FED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9F17E32B80787500A33FED /* SceneDelegate.swift */; };
 		5E9F17E62B80787500A33FED /* JobsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9F17E52B80787500A33FED /* JobsViewController.swift */; };
@@ -72,6 +73,7 @@
 /* Begin PBXFileReference section */
 		5E01E23D2B84F3AA0015014A /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		5E01E23F2B8591620015014A /* MockSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSessionManager.swift; sourceTree = "<group>"; };
+		5E01E2412B85A2FE0015014A /* AppCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorTests.swift; sourceTree = "<group>"; };
 		5E9F17DE2B80787500A33FED /* seekmaxCodetest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = seekmaxCodetest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E9F17E12B80787500A33FED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5E9F17E32B80787500A33FED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 			children = (
 				5EBE65572B833BEB00C9EE04 /* Mock */,
 				5E9F17F82B80787600A33FED /* LoginViewModelTests.swift */,
+				5E01E2412B85A2FE0015014A /* AppCoordinatorTests.swift */,
 			);
 			path = seekmaxCodetestTests;
 			sourceTree = "<group>";
@@ -506,6 +509,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E01E2422B85A2FE0015014A /* AppCoordinatorTests.swift in Sources */,
 				5E01E2402B8591620015014A /* MockSessionManager.swift in Sources */,
 				5E9F17F92B80787600A33FED /* LoginViewModelTests.swift in Sources */,
 				5EBE655B2B833C3500C9EE04 /* MockKeychain.swift in Sources */,

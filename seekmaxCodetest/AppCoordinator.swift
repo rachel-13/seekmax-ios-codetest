@@ -18,9 +18,11 @@ class AppCoordinator: Coordinator {
   var loginCoordinator: LoginCoordinator?
   var tabCoordinator: TabBarCoordinator?
   var cancelleable = Set<AnyCancellable>()
+  let sessionManager: SessionManagerProtocol
   
-  init(window: UIWindow) {
+  init(window: UIWindow, sessionManager: SessionManagerProtocol) {
     self.window = window
+    self.sessionManager = sessionManager
   }
   
   deinit {
@@ -29,7 +31,7 @@ class AppCoordinator: Coordinator {
   
   func start() {
     let navigationController = UINavigationController()
-    SessionManager.shared.$isLoggedIn
+    sessionManager.isLoggedInPublisher
       .sink { isLoggedIn in
         if isLoggedIn {
           self.routeToTabBar(navigationController: navigationController)

@@ -1,16 +1,27 @@
 # seekmax-ios-codetest
 
-### THOUGHT PROCESS
+### GENERAL THOUGHT PROCESS
 
 - Written in UIKit but using Combine in-place of the all familiar RxSwift
 - Used MVVM-C for separation of concerns but due to time constraints, not all modules may have it
 - Defined a Theme file that contains all constants of the application
-- Used a SessionManager to keep track of login status and change UIWIndows based on a stream that emits status. AppCoordinator listens to this stream
-- Job Detail screen uses a stackview within a scrollview so that screen can be scrollable if content size exceeds screen height
-- ProfileViewController only has a Logout button for me to test the flow between landing on Login screen or TabBar screen on app launch with the session manager so it is not a functional module with proper architecture
+- Used a SessionManager to keep track of login status and change UIWIndows based on a stream that emits status. AppCoordinator listens to this stream and decides on if it should route to Login or TabBar
 - Dependencies are injected into ViewModels/Coordinators and depend on ProtocolTypes to make it easier to mock or write unit tests. Best effort to follow SOLID principles for Login, JobList and JobDetail module
-- Lazyloading on JobList screen by the time we reach second last item in the tableview
-- For `JobListViewModel`, the 
+
+
+#### Login module
+- Makes the API call and simple mechanism to save token into keychain and update SessionManager on login status
+- Only propagates 2 errors as of now i.e. when username/password is mismatched, and when there are network failures
+
+#### Job module
+- Lazyloading on job list screen by the time we reach second last item in the tableview
+- For `JobListViewModel`, a tradeoff was made between using `Published<Bool>.Publisher` or `Published<[JobListCellViewModel]>.Publisher` to inform the ViewController of the changes in datasource but since the ViewController is not supposed to know about models (the second publisher propagates the entire array of CellViewModels to View), it should tap into the primitive `[JobListCellViewModel]` variable instead. Thus, all we need is a just a Boolean publisher and the first one was chosen.
+- Job Detail screen uses a stackview within a scrollview so that screen can be scrollable if content size exceeds screen height
+- JobService for both JobList and JobDetail module are injected with different types to disallow one from tapping into the stream of the other
+
+#### Profile module
+- ProfileViewController only has a Logout button for me to test the flow between landing on Login screen or TabBar screen on app launch with the session manager so it is not a functional module with proper architecture
+- On tapping the Logout button, updates SessionManager
 
 
 ### TODO: FEATURES

@@ -23,47 +23,57 @@ final class seekmaxCodetestTests: XCTestCase {
   }
   
   func testLoginSuccessful() {
+    
     // Given
+    let expectation = XCTestExpectation(description: "Login succeeds")
     let fakeToken = "jwt"
     mockLoginService.shouldSucceed = true
     mockLoginService.stubbedToken = fakeToken
     
-    let _ = sut.service.loginStream.sink { _ in
+    mockSessionManager.$isLoggedIn.sink { isLoggedIn in
       // Then
-      XCTAssertTrue(self.mockSessionManager.didCallLogin)
-      XCTAssertEqual(self.mockSessionManager.stubbedToken, fakeToken)
-    }
+      if isLoggedIn {
+        expectation.fulfill()
+      }
+    }.store(in: &cancelleable)
     
     // When
     sut.login(with: "someusername", password: "somepassword")
+    wait(for: [expectation], timeout: 3)
   }
   
   func testLoginFail_incorrectUsernamePassword() {
     // Given
+    let expectation = XCTestExpectation(description: "Login fails with wrong username and password")
     mockLoginService.shouldSucceed = false
     mockLoginService.stubbedError = .unauthorized
     
-    let _ = sut.service.loginStream.sink { _ in
+    sut.errorMessagePublisher.sink { result in
       // Then
-      XCTAssertFalse(self.mockSessionManager.didCallLogin)
-      XCTAssertEqual(self.sut.errorMessage, "Username & password don't match")
-    }
+      if result == "Username & password don't match" {
+        expectation.fulfill()
+      }
+    }.store(in: &cancelleable)
     
     // When
     sut.login(with: "someusername", password: "somepassword")
+    wait(for: [expectation], timeout: 3)
   }
   
   func testLoginFail_networkErrors() {
     // Given
+    let expectation = XCTestExpectation(description: "Login fails with unknown error")
     mockLoginService.shouldSucceed = false
     
-    let _ = sut.service.loginStream.sink { _ in
+    sut.errorMessagePublisher.sink { result in
       // Then
-      XCTAssertFalse(self.mockSessionManager.didCallLogin)
-      XCTAssertEqual(self.sut.errorMessage, "Something went wrong. Please try again later")
-    }
+      if result == "Something went wrong. Please try again later" {
+        expectation.fulfill()
+      }
+    }.store(in: &cancelleable)
     
     // When
     sut.login(with: "someusername", password: "somepassword")
+    wait(for: [expectation], timeout: 3)
   }
 }

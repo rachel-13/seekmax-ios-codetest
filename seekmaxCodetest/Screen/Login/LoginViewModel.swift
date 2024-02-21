@@ -19,7 +19,6 @@ class LoginViewModelImpl: LoginViewModel {
   
   let service: LoginService
   let sessionManager: SessionManagerProtocol
-  weak var coordinatorDelegate: LoginCoordinator?
   private var cancellables: Set<AnyCancellable> = []
   
   init(service: LoginService, sessionManager: SessionManagerProtocol) {

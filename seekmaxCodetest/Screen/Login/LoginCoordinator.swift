@@ -26,8 +26,7 @@ class LoginCoordinator: Coordinator {
     let loginService = LoginServiceImpl(client: NetworkClient.shared)
     let loginViewModel = LoginViewModelImpl(service: loginService, sessionManager: SessionManager.shared)
     let loginViewController = LoginViewController(viewModel: loginViewModel)
-    
-    loginViewModel.coordinatorDelegate = self
+
     navigationController.viewControllers = [loginViewController]
     window.rootViewController = navigationController
     window.makeKeyAndVisible()

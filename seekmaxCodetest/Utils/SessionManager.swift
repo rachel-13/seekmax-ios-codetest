@@ -8,11 +8,13 @@
 import Foundation
 
 protocol SessionManagerProtocol {
+  var isLoggedInPublisher: Published<Bool>.Publisher { get }
   func login(with token: String)
   func logout()
 }
 
 class SessionManager: SessionManagerProtocol {
+  var isLoggedInPublisher: Published<Bool>.Publisher { $isLoggedIn }
   @Published var isLoggedIn: Bool = false
   static let shared: SessionManager = SessionManager()
   let keychain = KeychainWrapperImpl()

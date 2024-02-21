@@ -10,15 +10,17 @@ import Foundation
 
 class MockSessionManager: SessionManagerProtocol {
   
-  var didCallLogin = false
+  var isLoggedInPublisher: Published<Bool>.Publisher { $isLoggedIn }
+  @Published var isLoggedIn = false
+  
   var stubbedToken = ""
   func login(with token: String) {
-    didCallLogin = true
+    isLoggedIn = true
     stubbedToken = token
   }
   
   var didCallLogout = false
   func logout() {
-    didCallLogout = true
+    isLoggedIn = false
   }
 }

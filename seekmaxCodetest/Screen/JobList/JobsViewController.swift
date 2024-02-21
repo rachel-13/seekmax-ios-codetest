@@ -39,7 +39,6 @@ class JobsViewController: UIViewController {
     self.viewModel.isDataChangedPublisher
       .receive(on: DispatchQueue.main)
       .sink { [weak self] isDataChanged in
-        print("reload data: \(isDataChanged)")
         if isDataChanged {
           self?.reloadData()
         }

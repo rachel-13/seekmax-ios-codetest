@@ -11,7 +11,7 @@ import SeekmaxAPI
 
 protocol JobListViewModel {
   var cellViewModels: [JobListCellViewModel] { get }
-  var cellViewModelPublisher: Published<[JobListCellViewModel]>.Publisher { get }
+  var isDataChangedPublisher: Published<Bool>.Publisher { get }
   var hasNext: Bool { get }
   var total: Int { get }
   func didTapJob(index: Int)
@@ -19,7 +19,7 @@ protocol JobListViewModel {
 }
 
 class JobListViewModelImpl: JobListViewModel {
-  var cellViewModelPublisher: Published<[JobListCellViewModel]>.Publisher { $cellViewModels }
+  var isDataChangedPublisher: Published<Bool>.Publisher { $isDataChanged }
   var cancellable = Set<AnyCancellable>()
   let service: JobListService
   var size = 10
@@ -28,7 +28,8 @@ class JobListViewModelImpl: JobListViewModel {
   var hasNext = false
   var coordinatorDelegate: JobListCoordinator?
   
-  @Published var cellViewModels: [JobListCellViewModel] = []
+  var cellViewModels: [JobListCellViewModel] = []
+  @Published var isDataChanged = false
   
   init(service: JobListService) {
     self.service = service
@@ -56,6 +57,7 @@ class JobListViewModelImpl: JobListViewModel {
             return JobListCellViewModelImpl(job: unwrappedJob)
           }
           self.cellViewModels.append(contentsOf: parsedJobs)
+          self.isDataChanged = true
         case .failure(let err):
           break
         }

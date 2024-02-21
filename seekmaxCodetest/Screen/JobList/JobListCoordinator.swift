@@ -16,6 +16,10 @@ class JobListCoordinator: Coordinator {
     self.navigationController = navigationController ?? UINavigationController()
   }
   
+  deinit {
+    print("job list coordinator deinited")
+  }
+  
   func start() {
     let jobService = JobServiceImpl(client: NetworkClient.shared)
     let jobsViewModel = JobListViewModelImpl(service: jobService)

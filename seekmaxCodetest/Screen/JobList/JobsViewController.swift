@@ -36,10 +36,13 @@ class JobsViewController: UIViewController {
   }
   
   private func bindToViewModel() {
-    self.viewModel.cellViewModelPublisher
+    self.viewModel.isDataChangedPublisher
       .receive(on: DispatchQueue.main)
-      .sink { [weak self] _ in
-        self?.reloadData()
+      .sink { [weak self] isDataChanged in
+        print("reload data: \(isDataChanged)")
+        if isDataChanged {
+          self?.reloadData()
+        }
       }.store(in: &cancellable)
   }
   
@@ -49,7 +52,7 @@ class JobsViewController: UIViewController {
   
   private func setupUI() {
     self.tableView.rowHeight = UITableView.automaticDimension
-    self.tableView.estimatedRowHeight = 250
+    self.tableView.estimatedRowHeight = Theme.Dimension.estimatedRowHeight
     self.view.backgroundColor = Theme.Color.backgroundBrand
     self.view.addSubview(tableView)
     

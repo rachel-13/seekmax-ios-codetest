@@ -20,6 +20,7 @@ struct Theme {
     static let TextFieldHeight = 50.0
     static let ButtonHeight = 45.0
     static let cornerRadius = 10.0
+    static let estimatedRowHeight = 250.0
   }
   
   struct Color {

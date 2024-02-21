@@ -50,3 +50,4 @@
 
 - **Bug on company name**, since there aren't any company names returned from backend, job._id was used as place holder. Industry and location also returns Int, need to figure out a good way to check if these variables are of valid locations. Maybe check for CharacterSet existence
 - **Bug on login form** where button is not enabled for a brief moment after we clear password via backspace. Reproduction steps: Key in username and password. Then backspace the password textfield all the way. The button is still enabled even though the password textfield is empty. It will only be disabled after the first character of password is keyed in again and then it will re-enable.
+- **Bug on job detail** where the Apply button text will turn dark on touchDown but after a few rapid clicks.

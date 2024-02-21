@@ -7,7 +7,12 @@
 
 import Foundation
 
-class SessionManager {
+protocol SessionManagerProtocol {
+  func login(with token: String)
+  func logout()
+}
+
+class SessionManager: SessionManagerProtocol {
   @Published var isLoggedIn: Bool = false
   static let shared: SessionManager = SessionManager()
   let keychain = KeychainWrapperImpl()

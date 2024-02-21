@@ -18,13 +18,13 @@ class LoginViewModelImpl: LoginViewModel {
   var errorMessagePublisher: Published<String>.Publisher { $errorMessage }
   
   let service: LoginService
-  let keychain: KeychainWrapper
+  let sessionManager: SessionManagerProtocol
   weak var coordinatorDelegate: LoginCoordinator?
   private var cancellables: Set<AnyCancellable> = []
   
-  init(service: LoginService, keychain: KeychainWrapper) {
+  init(service: LoginService, sessionManager: SessionManagerProtocol) {
     self.service = service
-    self.keychain = keychain
+    self.sessionManager = sessionManager
     bindToService()
   }
   
@@ -48,12 +48,15 @@ class LoginViewModelImpl: LoginViewModel {
   }
   
   private func saveToken(token: String) {
-    SessionManager.shared.login(with: token)
+    sessionManager.login(with: token)
   }
   
   private func handleError(error: LoginServiceError) {
-    if error == .unauthorized {
+    switch error {
+    case .unauthorized:
       self.errorMessage = "Username & password don't match"
+    case .unknown:
+      self.errorMessage = "Something went wrong. Please try again later"
     }
   }
   

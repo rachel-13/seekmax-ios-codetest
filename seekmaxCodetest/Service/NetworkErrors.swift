@@ -9,6 +9,7 @@ import Foundation
 
 enum LoginServiceError: Error {
   case unauthorized
+  case unknown
 }
 
 enum JobServiceError: Error {

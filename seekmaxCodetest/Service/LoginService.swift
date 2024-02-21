@@ -45,14 +45,21 @@ class LoginServiceImpl: LoginService {
         self.loginStream.send(.success(token))
         
       case .failure(let err):
-        print(err)
+        self.handleError(errors: [err])
         break
       }
     }
   }
   
-  private func handleError(errors: [GraphQLError]?) {
-    guard let errors = errors, let firstErr = errors.first?.message else { return }
-    self.loginStream.send(.failure(LoginServiceError.unauthorized))
+  private func handleError(errors: [Error]?) {
+    guard let errors = errors else {
+      return
+    }
+    if let graphQLErrs = errors as? [GraphQLError], let firstErrMessage = graphQLErrs.first?.message?.contains("401") {
+      self.loginStream.send(.failure(LoginServiceError.unauthorized))
+      return
+    }
+    
+    self.loginStream.send(.failure(LoginServiceError.unknown))
   }
 }

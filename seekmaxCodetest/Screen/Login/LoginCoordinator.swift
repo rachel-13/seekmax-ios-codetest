@@ -23,9 +23,8 @@ class LoginCoordinator: Coordinator {
   }
   
   func start() {
-    let keychain = KeychainWrapperImpl()
     let loginService = LoginServiceImpl(client: NetworkClient.shared)
-    let loginViewModel = LoginViewModelImpl(service: loginService, keychain: keychain)
+    let loginViewModel = LoginViewModelImpl(service: loginService, sessionManager: SessionManager.shared)
     let loginViewController = LoginViewController(viewModel: loginViewModel)
     
     loginViewModel.coordinatorDelegate = self

@@ -13,36 +13,54 @@ final class seekmaxCodetestTests: XCTestCase {
   
   var sut: LoginViewModelImpl!
   var mockLoginService: MockLoginService!
-  var mockKeychain: MockKeychain!
+  var mockSessionManager: MockSessionManager!
   var cancelleable = Set<AnyCancellable>()
   
   override func setUp() {
     mockLoginService = MockLoginService()
-    mockKeychain = MockKeychain()
-    sut = LoginViewModelImpl(service: mockLoginService, keychain: mockKeychain)
+    mockSessionManager = MockSessionManager()
+    sut = LoginViewModelImpl(service: mockLoginService, sessionManager: mockSessionManager)
   }
   
   func testLoginSuccessful() {
     // Given
+    let fakeToken = "jwt"
     mockLoginService.shouldSucceed = true
+    mockLoginService.stubbedToken = fakeToken
     
     let _ = sut.service.loginStream.sink { _ in
       // Then
-      XCTAssertTrue(self.mockKeychain.didCallSetData)
+      XCTAssertTrue(self.mockSessionManager.didCallLogin)
+      XCTAssertEqual(self.mockSessionManager.stubbedToken, fakeToken)
     }
     
     // When
     sut.login(with: "someusername", password: "somepassword")
   }
   
-  func testLoginFail() {
+  func testLoginFail_incorrectUsernamePassword() {
+    // Given
+    mockLoginService.shouldSucceed = false
+    mockLoginService.stubbedError = .unauthorized
+    
+    let _ = sut.service.loginStream.sink { _ in
+      // Then
+      XCTAssertFalse(self.mockSessionManager.didCallLogin)
+      XCTAssertEqual(self.sut.errorMessage, "Username & password don't match")
+    }
+    
+    // When
+    sut.login(with: "someusername", password: "somepassword")
+  }
+  
+  func testLoginFail_networkErrors() {
     // Given
     mockLoginService.shouldSucceed = false
     
     let _ = sut.service.loginStream.sink { _ in
       // Then
-      XCTAssertFalse(self.mockKeychain.didCallSetData)
-      XCTAssertEqual(self.sut.errorMessage, "Username & password don't match")
+      XCTAssertFalse(self.mockSessionManager.didCallLogin)
+      XCTAssertEqual(self.sut.errorMessage, "Something went wrong. Please try again later")
     }
     
     // When
